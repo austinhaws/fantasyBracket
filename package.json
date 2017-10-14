@@ -1,0 +1,35 @@
+{
+  "name": "deployment",
+  "version": "3.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "dts-js-logging": "^1.0.0",
+    "dts-react-common": "^1.0.18",
+    "jquery": "3.2.1",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "webpack": "^2.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "build": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.dts.utah.gov:sixthfloor-east/internal/deployment.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
