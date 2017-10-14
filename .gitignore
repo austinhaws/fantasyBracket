@@ -141,3 +141,6 @@ target/**
 /nb-configuration.xml
 target**
 node_modules**
+
+# mock WS used for testing, will need real webservice eventually
+/ws**

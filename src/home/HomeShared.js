@@ -1,7 +1,7 @@
 import React from "react";
-import store from "../Store.jsx";
-import reducers from "../Reducers.jsx";
-import shared from "../Shared.jsx";
+import store from "../Store.js";
+import reducers from "../Reducers.js";
+import shared from "../Shared.js";
 
 const homeShared = {
 	funcs: {

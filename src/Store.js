@@ -1,6 +1,6 @@
 import React from "react";
 import {createStore} from "redux";
-import reducers from "./Reducers.jsx";
+import reducers from "./Reducers.js";
 
 // the store to connect all components to their data
 const store = createStore((state, action) => {

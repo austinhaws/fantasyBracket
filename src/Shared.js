@@ -1,6 +1,6 @@
 import React from "react";
-import store from "./Store.jsx";
-import reducers from "./Reducers.jsx";
+import store from "./Store.js";
+import reducers from "./Reducers.js";
 import $ from "jquery";
 import jsLogging from 'dts-js-logging';
 

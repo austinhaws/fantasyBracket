@@ -4,9 +4,9 @@ import * as ReactDOM from "react-dom";
 import {connect, Provider} from "react-redux";
 import PropTypes from "prop-types";
 import {withRouter} from "react-router";
-import store from './Store.jsx';
-import shared from './Shared.jsx';
-import Home from './home/Home.jsx';
+import store from './Store.js';
+import shared from './Shared.js';
+import Home from './home/Home.js';
 
 // ==== setup react container for the report ==== //
 class AppClass extends React.Component {
@@ -30,18 +30,15 @@ class AppClass extends React.Component {
 					<div id="contentBody">
 						<div id="inputSection" className="middleContent">
 							<Switch>
-								<Route path='/html/deploy/:deployPk' render={props => <DeployEditor key={props.match.params.deployPk}/>}/>
-								<Route path='/html/history' component={History}/>
-								<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>
-								<Route path='/html/apps' component={Apps}/>
+								{/*<Route path='/html/deploy/:deployPk' render={props => <DeployEditor key={props.match.params.deployPk}/>}/>*/}
+								{/*<Route path='/html/history' component={History}/>*/}
+								{/*<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>*/}
+								{/*<Route path='/html/apps' component={Apps}/>*/}
 								<Route component={Home}/>
 							</Switch>
 
 							{this.props.ajaxingCount ? <div id="ajaxingOverlay"/> : false}
 						</div>
-
-						<Navigation/>
-
 					</div>
 {/*============================= End  React World  =================================*/}
 
@@ -77,4 +74,4 @@ const App = withRouter(connect(
 	dispatch => {return {}},
 )(AppClass));
 
-ReactDOM.render((<BrowserRouter basename="/fantasyDeployment"><Provider store={store}><App/></Provider></BrowserRouter>), document.getElementById('react'));
+ReactDOM.render((<BrowserRouter basename="/fantasyBracket"><Provider store={store}><App/></Provider></BrowserRouter>), document.getElementById('react'));
