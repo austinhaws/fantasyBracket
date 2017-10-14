@@ -21,42 +21,7 @@ const store = createStore((state, action) => {
 	}, {
 		// home page
 		home: {
-			// === default data ===
-			// the current deploys in the queue
-			activeDeploys: [],
 		},
-
-		// deploy page
-		deploy: {
-			// the deploy record current being edited or false for none
-			deploy: false,
-		},
-
-		// history search page
-		history: {
-			// current found histories
-			histories: [],
-			search: {
-				deployType: '',
-				applicationInfoPk: undefined,
-				developer: '',
-				top: 15,
-			},
-			searchDefault: {
-				deployType: '',
-				applicationInfoPk: undefined,
-				developer: '',
-				top: 15,
-			}
-		},
-
-		apps: {
-			apps: [],
-			editing: false,
-		},
-
-		// the projects this user can deploy, starts empty and fills in when ajax returns
-		projects: [],
 
 		// count of outstanding ajax requests
 		ajaxingCount: 0,

@@ -8,7 +8,19 @@ import store from './Store.js';
 import shared from './Shared.js';
 import Home from './home/Home.js';
 
-// ==== setup react container for the report ==== //
+
+class MenuItem extends React.Component {
+	render() {
+		return <a href={this.props.url} className={this.props.isCurrent ? 'current' : ''}>{this.props.title}</a>;
+	}
+}
+
+MenuItem.PropTypes = {
+	url: PropTypes.string.isRequired,
+	isCurrent: PropTypes.bool.isRequired,
+	title: PropTypes.string.isRequired,
+};
+
 class AppClass extends React.Component {
 	componentDidMount() {
 		shared.funcs.startup();
@@ -17,45 +29,30 @@ class AppClass extends React.Component {
 	render() {
 
 		return (
-			<div id="wrapper">
-				<div className="clear"></div>
-				<div id="content">
-{/*============================= React World =======================================*/}
-					<div id="identification">
-						<span className="name">{this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName} ` : ''}</span>
+			<div id="app">
+				<div id="title">Fantasy Bracket</div>
 
-						<span className="email">{this.props.user ? `${this.props.user.email}` : ''}</span>
+				<div id="appBody">
+					<div id="navigation">
+						{this.props.user ? <MenuItem url="/account" title={this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName}` : ''} isCurrent={false}/>: false}
+						<MenuItem url="/" title="Home" isCurrent={true}/>
+						<MenuItem url="/bracket" title="My Bracket" isCurrent={false}/>
+						<MenuItem url="/realBracket" title="Real Bracket" isCurrent={false}/>
+						<MenuItem url="/reports" title="Reports" isCurrent={false}/>
 					</div>
-
-					<div id="contentBody">
-						<div id="inputSection" className="middleContent">
-							<Switch>
-								{/*<Route path='/html/deploy/:deployPk' render={props => <DeployEditor key={props.match.params.deployPk}/>}/>*/}
-								{/*<Route path='/html/history' component={History}/>*/}
-								{/*<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>*/}
-								{/*<Route path='/html/apps' component={Apps}/>*/}
-								<Route component={Home}/>
-							</Switch>
-
-							{this.props.ajaxingCount ? <div id="ajaxingOverlay"/> : false}
-						</div>
-					</div>
-{/*============================= End  React World  =================================*/}
-
-					<div className="clear"></div>
-					<div id="footer" className="site">
-
-						<div className="versionNumber">
-							VERSION.GOES.HERE
-							| &copy;
-							{new Date().getFullYear()}
-							DTS
-						</div>
-
-						<div className="clearfix"></div>
+					<div id="content">
+						<Switch>
+							{/*<Route path='/html/deploy/:deployPk' render={props => <DeployEditor key={props.match.params.deployPk}/>}/>*/}
+							{/*<Route path='/html/history' component={History}/>*/}
+							{/*<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>*/}
+							{/*<Route path='/html/apps' component={Apps}/>*/}
+							<Route component={Home}/>
+						</Switch>
+						{this.props.ajaxingCount ? <div id="ajaxingOverlay"/> : false}
 					</div>
 				</div>
 
+				<div id="footer">VERSION.GOES.HERE | &copy;2017 DTS</div>
 			</div>
 		);
 	}
@@ -71,7 +68,9 @@ AppClass.PropTypes = {
 // withRouter required so that routing isn't blocked: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
 const App = withRouter(connect(
 	state => state,
-	dispatch => {return {}},
+	dispatch => {
+		return {}
+	},
 )(AppClass));
 
 ReactDOM.render((<BrowserRouter basename="/fantasyBracket"><Provider store={store}><App/></Provider></BrowserRouter>), document.getElementById('react'));
