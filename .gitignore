@@ -137,7 +137,7 @@ $RECYCLE.BIN/
 /node/**
 /node_modules/**
 target/**
-**/js/bundles/**
+**/js/bundles**
 /nb-configuration.xml
 target**
 node_modules**

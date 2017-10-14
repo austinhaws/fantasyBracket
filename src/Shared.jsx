@@ -63,13 +63,13 @@ const shared = {
 
 		// what projects can this user deploy?
 		ajaxAvailableProjects: () => {
-			shared.funcs.ajax('POST', '/deployment/ws/project/all', {},
+			shared.funcs.ajax('POST', 'ws/project/all', {},
 				projects => store.dispatch({type: reducers.ACTION_TYPES.SET_PROJECTS, payload: projects}));
 		},
 
 		// get csrf token for posting
 		refreshCsrf: callback => {
-			shared.funcs.ajax('GET', '/deployment/ws/csrf/get', {},
+			shared.funcs.ajax('GET', 'ws/csrf/get', {},
 				csrf => {
 					jsLogging({url: 'log/error.json', csrfName: csrf.parameterName, csrfToken: csrf.token,});
 
@@ -82,7 +82,7 @@ const shared = {
 
 		// who is currently logged in?
 		getCurrentUser: () => {
-			shared.funcs.ajax('POST', '/deployment/ws/user/current', {},
+			shared.funcs.ajax('POST', 'ws/user/current', {},
 				user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user}));
 		},
 
@@ -97,8 +97,6 @@ const shared = {
 
 				// get user information
 				shared.funcs.getCurrentUser();
-				// available projects
-				shared.funcs.ajaxAvailableProjects();
 			});
 		},
 	},

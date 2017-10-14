@@ -1,7 +1,7 @@
 {
-  "name": "deployment",
-  "version": "3.0.0",
-  "description": "",
+  "name": "fantasyBracketFrontEnd",
+  "version": "1.0.0",
+  "description": "The React front end to the fantasy bracket score entry/scorer system",
   "main": "webpack.config.js",
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.dts.utah.gov:sixthfloor-east/internal/deployment.git"
+    "url": "git@git.dts.utah.gov:sixthfloor-east/internal/fantasyBracketReact.git"
   },
   "author": "",
   "license": "ISC"

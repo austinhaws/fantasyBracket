@@ -2,15 +2,15 @@ const webpack = require('webpack');
 const path = require('path');
 
 // where does source live
-const APP_DIR = path.resolve(__dirname, 'src/main/webapp/js/react');
+const APP_DIR = path.resolve(__dirname, 'src');
 
 // where does compiled code go
-const BUILD_DIR = path.resolve(__dirname, 'src/main/webapp/js/bundles');
+const BUILD_DIR = path.resolve(__dirname, 'js/bundles');
 
 // tell it what file to starting compiling on and what to call it when done
 const config = {
 	entry: {
-		app: APP_DIR + '/App.jsx',
+		app: APP_DIR + '/App.js',
 	},
 	output: {
 		path: BUILD_DIR,
@@ -21,7 +21,7 @@ const config = {
 	module : {
 		loaders : [
 			{
-				test : /\.jsx?/,
+				test : /\.js?/,
 				include : APP_DIR,
 				loader : 'babel-loader'
 			},

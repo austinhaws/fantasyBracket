@@ -1,0 +1,19 @@
+/* tables */
+th.tablesorter-header {
+    background-color: white;
+	background-image: url(../images/bg.gif);
+    background-position: left center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 16px;
+}
+th.tablesorter-headerAsc {
+    background-color: #ffffe4;
+	background-image: url(../images/asc.gif);
+}
+th.tablesorter-headerDesc {
+    background-color: #ffffe4;
+	background-image: url(../images/desc.gif);
+}
