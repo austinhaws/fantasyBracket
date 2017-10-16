@@ -11,7 +11,11 @@ import Home from './home/Home.js';
 
 class MenuItem extends React.Component {
 	render() {
-		return <a href={this.props.url} className={this.props.isCurrent ? 'current' : ''}>{this.props.title}</a>;
+		return <Route render={({history}) => <a href="#" onClick={e => {
+			e.preventDefault();
+			e.stopPropagation();
+			history.push(this.props.url);
+		}} className={this.props.isCurrent ? 'current' : ''}>{this.props.title}</a>}/>;
 	}
 }
 
@@ -35,10 +39,10 @@ class AppClass extends React.Component {
 				<div id="appBody">
 					<div id="navigation">
 						{this.props.user ? <MenuItem url="/account" title={this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName}` : ''} isCurrent={false}/>: false}
-						<MenuItem url="/" title="Home" isCurrent={true}/>
-						<MenuItem url="/bracket" title="My Bracket" isCurrent={false}/>
-						<MenuItem url="/realBracket" title="Real Bracket" isCurrent={false}/>
-						<MenuItem url="/reports" title="Reports" isCurrent={false}/>
+						<MenuItem url="./" title="Home" isCurrent={true}/>
+						<MenuItem url="bracket" title="My Bracket" isCurrent={false}/>
+						<MenuItem url="realBracket" title="Real Bracket" isCurrent={false}/>
+						<MenuItem url="reports" title="Reports" isCurrent={false}/>
 					</div>
 					<div id="content">
 						<Switch>
