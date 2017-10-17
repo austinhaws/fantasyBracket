@@ -21,6 +21,10 @@ const store = createStore((state, action) => {
 	}, {
 		// home page
 		home: {
+			// which of the tournament's dates is the next upcoming event
+			nextDateIndex: false,
+			// converted dates to moment dates; keeps data in natural format for saving, but can uses moment for easier processing
+			upcomingDates: false,
 		},
 
 		// count of outstanding ajax requests
@@ -34,6 +38,9 @@ const store = createStore((state, action) => {
 
 		// current logged in user
 		user: false,
+
+		// the current tournament
+		tournament: undefined,
 	}
 
 	// for chrome redux plugin

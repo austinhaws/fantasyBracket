@@ -32,6 +32,13 @@ class AppClass extends React.Component {
 
 	render() {
 
+		let admin = [];
+		if (this.props.user && this.props.user.isAdmin) {
+			admin = admin.concat([
+				<MenuItem url="tournament" title="Tournament" isCurrent={false}/>,
+				<MenuItem url="reports" title="Reports" isCurrent={false}/>,
+			]);
+		}
 		return (
 			<div id="app">
 				<div id="title">Fantasy Bracket</div>
@@ -42,7 +49,7 @@ class AppClass extends React.Component {
 						<MenuItem url="./" title="Home" isCurrent={true}/>
 						<MenuItem url="bracket" title="My Bracket" isCurrent={false}/>
 						<MenuItem url="realBracket" title="Real Bracket" isCurrent={false}/>
-						<MenuItem url="reports" title="Reports" isCurrent={false}/>
+						{admin}
 					</div>
 					<div id="content">
 						<Switch>

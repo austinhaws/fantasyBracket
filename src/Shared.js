@@ -28,7 +28,7 @@ const shared = {
 
 		startAjax: () => store.dispatch({type: reducers.ACTION_TYPES.SET_AJAXING, payload: true,}),
 		stopAjax: () => store.dispatch({type: reducers.ACTION_TYPES.SET_AJAXING, payload: false}),
-		ajaxFail: () => console.error(arguments),
+		ajaxFail: () => false /*console.error(arguments)*/,
 
 		/**
 		 * make an ajax call; takes care of ajaxing flag setting and error logging
@@ -61,12 +61,6 @@ const shared = {
 			}
 		},
 
-		// what projects can this user deploy?
-		ajaxAvailableProjects: () => {
-			shared.funcs.ajax('POST', 'ws/project/all', {},
-				projects => store.dispatch({type: reducers.ACTION_TYPES.SET_PROJECTS, payload: projects}));
-		},
-
 		// get csrf token for posting
 		refreshCsrf: callback => {
 			shared.funcs.ajax('GET', 'ws/csrf/get', {},
@@ -85,6 +79,8 @@ const shared = {
 			shared.funcs.ajax('POST', 'ws/user/current', {},
 				user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user}));
 		},
+
+		getCurrentTournament: () => shared.funcs.ajax('GET', 'ws/tournament/current', {}, tournament => store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament})),
 
 		// app has started, get some basic information
 		startup: () => {
