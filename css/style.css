@@ -37,7 +37,7 @@ body {
 #navigation {
 	display: flex;
 	flex-direction: column;
-	width: 150px;
+	width: 200px;
 	border-right: 1px #aaa dotted;
 	margin-right: 30px;
 }
@@ -95,4 +95,12 @@ body {
 #dateContainer .dateRow.currentDate {
 	font-size: 20px;
 	margin: 7px auto 7px auto;
+}
+
+#navigation a.account {
+	font-style: italic;
+	margin-bottom: 15px;
+	border-bottom: 1px dotted #aaa;
+	padding-bottom: 8px;
+	font-size: 15px;
 }

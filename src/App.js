@@ -15,14 +15,20 @@ class MenuItem extends React.Component {
 			e.preventDefault();
 			e.stopPropagation();
 			history.push(this.props.url);
-		}} className={this.props.isCurrent ? 'current' : ''}>{this.props.title}</a>}/>;
+		}} className={`${this.props.isCurrent ? 'current' : ''} ${this.props.isUser ? 'account' : ''}`}>{this.props.title}</a>}/>;
 	}
 }
+MenuItem.defaultProps = {
+	isUser: false,
+	isCurrent: false,
+};
 
 MenuItem.PropTypes = {
 	url: PropTypes.string.isRequired,
-	isCurrent: PropTypes.bool.isRequired,
+	isCurrent: PropTypes.bool,
 	title: PropTypes.string.isRequired,
+	// is this the user menu item
+	isUser: PropTypes.bool,
 };
 
 class AppClass extends React.Component {
@@ -35,8 +41,8 @@ class AppClass extends React.Component {
 		let admin = [];
 		if (this.props.user && this.props.user.isAdmin) {
 			admin = admin.concat([
-				<MenuItem url="tournament" title="Tournament" isCurrent={false}/>,
-				<MenuItem url="reports" title="Reports" isCurrent={false}/>,
+				<MenuItem key="tournament" url="tournament" title="Tournament"/>,
+				<MenuItem key="reports" url="reports" title="Reports"/>,
 			]);
 		}
 		return (
@@ -45,10 +51,10 @@ class AppClass extends React.Component {
 
 				<div id="appBody">
 					<div id="navigation">
-						{this.props.user ? <MenuItem url="/account" title={this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName}` : ''} isCurrent={false}/>: false}
-						<MenuItem url="./" title="Home" isCurrent={true}/>
-						<MenuItem url="bracket" title="My Bracket" isCurrent={false}/>
-						<MenuItem url="realBracket" title="Real Bracket" isCurrent={false}/>
+						{this.props.user ? <MenuItem key="account" isUser={true} url="/account" title={this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName}` : ''}/>: false}
+						<MenuItem account="home" url="./" title="Home" isCurrent={true}/>
+						<MenuItem key="myBracket" url="bracket" title="My Bracket"/>
+						<MenuItem key="realBracket" url="realBracket" title="Real Bracket"/>
 						{admin}
 					</div>
 					<div id="content">
