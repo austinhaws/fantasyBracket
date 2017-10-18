@@ -1,6 +1,6 @@
 import React from "react";
 import {createStore} from "redux";
-import reducers from "./Reducers.js";
+import reducers from "./Reducers";
 
 // the store to connect all components to their data
 const store = createStore((state, action) => {
@@ -34,6 +34,10 @@ const store = createStore((state, action) => {
 		csrf: {
 			name: '',
 			token: '',
+		},
+
+		tournamentEdit: {
+			tournament: false,
 		},
 
 		// current logged in user

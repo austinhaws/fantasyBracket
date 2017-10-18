@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
-import shared from "../Shared.js";
+import shared from "../Shared";
 
 // ==== setup react container for the report ==== //
 class HomeClass extends React.Component {
-	componentDidMount() {
+	constructor(props) {
+		super(props);
 		if (!this.props.tournament) {
 			shared.funcs.getCurrentTournament();
 		}
@@ -21,7 +22,7 @@ class HomeClass extends React.Component {
 							return (
 								<div className={`dateRow ${this.props.home.nextDateIndex === i ? 'currentDate' : ''} ${d.afterToday ? '' : 'oldDate'}`} key={d.name}>
 									<div className="label">{d.name}:</div>
-									<div className="date">{d.date.format('dddd, MMMM Do YYYY')}</div>
+									<div className="date">{d.momentDate.format('dddd, MMMM Do YYYY')}</div>
 								</div>
 							);
 						})

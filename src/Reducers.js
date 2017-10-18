@@ -14,6 +14,11 @@ let reducers = {
 		SET_USER: 'SET_USER',
 
 		SET_TOURNAMENT: 'SET_TOURNAMENT',
+
+		TOURNAMENT: {
+			SET_FIELD: 'TOURNAMENT',
+			SET_EDITING_TOURNAMENT: 'SET_EDITING_TOURNAMENT',
+		}
 	}
 };
 
@@ -58,12 +63,30 @@ reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 		const momentDate = moment(d.date);
 		return {
 			name: d.name,
-			date: momentDate,
+			momentDate: momentDate,
 			afterToday: today.isBefore(momentDate),
 		};
 	});
 	result.home.nextDateIndex = result.home.upcomingDates.reduce((result, d, i) => (result === false && d.afterToday) ? i : result, false);
 
+	return result;
+};
+
+reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_FIELD] = (state, action) => {
+	const result = Object.assign({}, state);
+	// assumes editing tournament is already loaded
+	result.tournamentEdit.tournament = Object.assign({}, result.tournamentEdit.tournament);
+	result.tournamentEdit.tournament[action.field] = action.value;
+	return result;
+};
+
+reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT] = (state, action) => {
+	const result = Object.assign({}, state);
+	result.tournamentEdit.tournament = Object.assign({}, action.payload);
+	result.tournamentEdit.tournament.dates = result.tournamentEdit.tournament.dates.map(d => {
+		d.date = d.date.split('T')[0];
+		return d;
+	});
 	return result;
 };
 

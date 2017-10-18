@@ -4,9 +4,10 @@ import * as ReactDOM from "react-dom";
 import {connect, Provider} from "react-redux";
 import PropTypes from "prop-types";
 import {withRouter} from "react-router";
-import store from './Store.js';
-import shared from './Shared.js';
-import Home from './home/Home.js';
+import store from './Store';
+import shared from './Shared';
+import Home from './home/Home';
+import Tournament from "./tournament/Tournament";
 
 
 class MenuItem extends React.Component {
@@ -32,7 +33,8 @@ MenuItem.PropTypes = {
 };
 
 class AppClass extends React.Component {
-	componentDidMount() {
+	constructor(props) {
+		super(props);
 		shared.funcs.startup();
 	}
 
@@ -62,7 +64,7 @@ class AppClass extends React.Component {
 							{/*<Route path='/html/deploy/:deployPk' render={props => <DeployEditor key={props.match.params.deployPk}/>}/>*/}
 							{/*<Route path='/html/history' component={History}/>*/}
 							{/*<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>*/}
-							{/*<Route path='/html/apps' component={Apps}/>*/}
+							<Route path='/tournament' component={Tournament}/>
 							<Route component={Home}/>
 						</Switch>
 						{this.props.ajaxingCount ? <div id="ajaxingOverlay"/> : false}

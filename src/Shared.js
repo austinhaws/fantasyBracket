@@ -1,6 +1,6 @@
 import React from "react";
-import store from "./Store.js";
-import reducers from "./Reducers.js";
+import store from "./Store";
+import reducers from "./Reducers";
 import $ from "jquery";
 import jsLogging from 'dts-js-logging';
 
@@ -80,7 +80,12 @@ const shared = {
 				user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user}));
 		},
 
-		getCurrentTournament: () => shared.funcs.ajax('GET', 'ws/tournament/current', {}, tournament => store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament})),
+		getCurrentTournament: callback => shared.funcs.ajax('GET', 'ws/tournament/current', {}, tournament => {
+			store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament});
+			if (callback) {
+				callback(tournament);
+			}
+		}),
 
 		// app has started, get some basic information
 		startup: () => {
