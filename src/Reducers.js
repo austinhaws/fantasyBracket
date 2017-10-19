@@ -16,7 +16,7 @@ let reducers = {
 		SET_TOURNAMENT: 'SET_TOURNAMENT',
 
 		TOURNAMENT: {
-			SET_FIELD: 'TOURNAMENT',
+			SET_DATE_FIELD: 'SET_DATE_FIELD',
 			SET_EDITING_TOURNAMENT: 'SET_EDITING_TOURNAMENT',
 		}
 	}
@@ -72,11 +72,13 @@ reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 	return result;
 };
 
-reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_FIELD] = (state, action) => {
+reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD] = (state, action) => {
 	const result = Object.assign({}, state);
 	// assumes editing tournament is already loaded
+	result.tournamentEdit = Object.assign({}, result.tournamentEdit);
 	result.tournamentEdit.tournament = Object.assign({}, result.tournamentEdit.tournament);
-	result.tournamentEdit.tournament[action.field] = action.value;
+	result.tournamentEdit.tournament.dates = result.tournamentEdit.tournament.dates.map(d => Object.assign({}, d));
+	result.tournamentEdit.tournament.dates[action.payload.index].date = action.payload.value;
 	return result;
 };
 

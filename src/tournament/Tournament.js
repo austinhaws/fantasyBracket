@@ -11,11 +11,12 @@ class DateInput extends React.Component {
 		return (
 			<div className="inputGroup">
 				<div className="label">{this.props.label}</div>
-				<div className="input"><input type="text" className="dataFont" value={this.props.value} onChange={this.props.dateChanged}/></div>
+				<div className="input"><input type="text" className="dataFont" value={this.props.value} onChange={e => this.props.dateChanged(e.target.value)}/></div>
 			</div>
 		);
 	}
 }
+
 DateInput.PropTypes = {
 	label: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
@@ -33,27 +34,37 @@ class TournamentClass extends React.Component {
 		}
 	}
 
+	saveTournament(history) {
+		shared.funcs.ajax('POST', 'ws/tournament/save', this.props.tournamentEdit.tournament, () => history.push('./'), false, false, false);
+	}
+
 	render() {
 		return (
-				this.props.tournamentEdit.tournament ? (
-					<div id="tournamentContainer">
-						<div className="inputs">
-							{
-								this.props.tournamentEdit.tournament ?
+			this.props.tournamentEdit.tournament ? (
+				<div id="tournamentContainer">
+					<div className="inputs">
+						{
+							this.props.tournamentEdit.tournament ?
 								<div>
-									{this.props.tournamentEdit.tournament.dates.map(d => <DateInput key={d.name} label={d.name} value={d.date} dateChanged={this.props.changeTournamentField}/>)}
+									{this.props.tournamentEdit.tournament.dates.map((d, i) =>
+										<DateInput
+											key={d.name}
+											label={d.name}
+											value={d.date}
+											dateChanged={value => this.props.changeTournamentDateField(i, value)}/>
+									)}
 								</div>
 								: false
-							}
-						</div>
-						<Route render={({history}) => (
-							<div className="buttonContainer">
-								<Button key="cancel" label="Cancel" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.BLUE_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
-								<Button key="save" label="Save" clickedCallback={() => console.log('saved')} color={Button.BACKGROUND_COLOR.GREEN_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
-							</div>
-						)}/>
+						}
 					</div>
-				) : false
+					<Route render={({history}) => (
+						<div className="buttonContainer">
+							<Button key="cancel" label="Cancel" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.BLUE_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
+							<Button key="save" label="Save" clickedCallback={() => this.saveTournament(history)} color={Button.BACKGROUND_COLOR.GREEN_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
+						</div>
+					)}/>
+				</div>
+			) : false
 		);
 	}
 }
@@ -68,10 +79,12 @@ TournamentClass.PropTypes = {
 
 const Tournament = withRouter(connect(
 	state => state,
-	dispatch => {return {
-		changeTournamentField: (field, value) => dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_FIELD, payload: {field: field, value: value}}),
-		setTournamentEdit: tournament => dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT, payload: tournament}),
-	}},
+	dispatch => {
+		return {
+			changeTournamentDateField: (index, value) => dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD, payload: {index: index, value: value}}),
+			setTournamentEdit: tournament => dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT, payload: tournament}),
+		}
+	},
 )(TournamentClass));
 
 export default Tournament;
