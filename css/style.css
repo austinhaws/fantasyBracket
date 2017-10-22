@@ -105,30 +105,30 @@ body {
 	font-size: 15px;
 }
 
-#tournamentContainer {
+.editorContainer {
 	display: flex;
 	flex-direction: column;
 }
-#tournamentContainer .inputs, #tournamentContainer .buttonContainer {
+.editorContainer .inputs, .editorContainer .buttonContainer {
 	display: flex;
 	margin: 17px auto 0;
 	justify-content: space-around;
 	width: 400px;
 }
-#tournamentContainer .inputs {
+.editorContainer .inputs {
 	flex-direction: column;
 }
 
-#tournamentContainer .inputGroup {
+.editorContainer .inputGroup {
 	display: flex;
 	flex-direction: row;
 	margin: 8px 0;
 }
-#tournamentContainer .inputGroup:first-child {
+.editorContainer .inputGroup:first-child {
 	margin-top: 0;
 }
 
-#tournamentContainer .inputGroup .label {
+.editorContainer .inputGroup .label {
 	font-weight: bold;
 	margin-right: 9px;
 	width: 200px;
@@ -397,7 +397,7 @@ body {
 .game.dragged {
 	border: 1px solid blue;
 }
-#tournamentContainer .title {
+.editorContainer .title {
 	font-weight: bold;
 	font-size: 20px;
 	text-align: center;
@@ -405,6 +405,6 @@ body {
 	padding-top: 14px;
 	border-top: 1px dotted #aaa;
 }
-#tournamentContainer .inputs:first-child .title {
+.editorContainer .inputs:first-child .title {
 	border-top: none;
 }

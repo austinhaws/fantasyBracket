@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
-import Conference from "./bracket/Conference";
+import Conference from "./realBracket/Conference";
+import shared from "./Shared";
 
 // !!!!  Be careful that no names match  !!! //
 let reducers = {
@@ -39,34 +40,39 @@ let reducers = {
  }
  */
 
+// quick and dirty full copy of state
+function copyState(state) {
+	return JSON.parse(JSON.stringify(state));
+}
+
 // set ajaxing state for the spinner to show
 // payload: boolean true for an ajax began, false an ajax ended
 reducers[reducers.ACTION_TYPES.SET_AJAXING] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	result.ajaxingCount += action.payload ? 1 : -1;
 	return result;
 };
 
 reducers[reducers.ACTION_TYPES.SET_CSRF] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	result.csrf = action.payload;
 	return result;
 };
 
 reducers[reducers.ACTION_TYPES.SET_USER] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	result.user = action.payload;
 	return result;
 };
 
 reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	result.tournament = action.payload;
 
 	// load extra info like next upcoming date
 	result.home.nextDateIndex = 0;
 	const today = moment();
-	result.home.upcomingDates = result.tournament.dates.map(d => {
+	shared.vars.upcomingDates = result.tournament.dates.map(d => {
 		const momentDate = moment(d.date);
 		return {
 			name: d.name,
@@ -74,13 +80,13 @@ reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 			afterToday: today.isBefore(momentDate),
 		};
 	});
-	result.home.nextDateIndex = result.home.upcomingDates.reduce((result, d, i) => (result === false && d.afterToday) ? i : result, false);
+	result.home.nextDateIndex = shared.vars.upcomingDates.reduce((result, d, i) => (result === false && d.afterToday) ? i : result, false);
 
 	return result;
 };
 
 reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	// assumes editing tournament is already loaded
 	result.tournamentEdit = Object.assign({}, result.tournamentEdit);
 	result.tournamentEdit.tournament = Object.assign({}, result.tournamentEdit.tournament);
@@ -90,7 +96,7 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD] = (state, action) => {
 };
 
 reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_ROLL_FIELD] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	// assumes editing tournament is already loaded
 	result.tournamentEdit = JSON.parse(JSON.stringify(result.tournamentEdit));
 	result.tournamentEdit.tournament.rolls[action.payload.index] = action.payload.value;
@@ -98,7 +104,7 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_ROLL_FIELD] = (state, action) => {
 };
 
 reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	result.tournamentEdit.tournament = Object.assign({}, action.payload);
 	result.tournamentEdit.tournament.dates = result.tournamentEdit.tournament.dates.map(d => {
 		d.date = d.date.split('T')[0];
@@ -108,7 +114,7 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT] = (state, acti
 };
 
 reducers[reducers.ACTION_TYPES.BRACKET.START_DRAG] = (state, action) => {
-	const result = Object.assign({}, state);
+	const result = copyState(state);
 	// quick and dirty full object deep copy
 	result.bracket = JSON.parse(JSON.stringify(result.bracket));
 	result.bracket.draggedGame = action.payload;

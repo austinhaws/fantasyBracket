@@ -2,24 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import reducers from "../Reducers";
 import {connect} from "react-redux";
+import {Route} from "react-router";
 
 
 class GameClass extends React.Component {
 	render() {
-		const dragged = this.props.bracket.draggedGame
-			&& this.props.conference === this.props.bracket.draggedGame.conference
-			&& this.props.round === this.props.bracket.draggedGame.round
-			&& this.props.gameNumber === this.props.bracket.draggedGame.gameNumber;
-		const droppable = this.props.bracket.droppableGames && this.props.bracket.droppableGames.filter(d =>
-			this.props.conference === d.conference
-			&& this.props.round === d.round
-			&& this.props.gameNumber === d.gameNumber).length;
-
-		return <div
-			className={`game ${dragged ? 'dragged' : ''} ${droppable ? 'droppable' : ''}`}
-			onMouseDown={() => this.props.startCellDrag(this.props.conference, this.props.round, this.props.gameNumber)}>
-				{`${this.props.round}-${this.props.gameNumber}`}
-			</div>;
+		return (
+			<Route render={({history}) => (
+				<div className="game" onClick={() => history.push(`realBracket/game/${this.props.conference}/${this.props.round}/${this.props.gameNumber}`)}>
+					{`${this.props.round}-${this.props.gameNumber}`}
+				</div>
+			)}/>
+		);
 	}
 }
 

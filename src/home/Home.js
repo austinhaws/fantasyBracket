@@ -18,7 +18,7 @@ class HomeClass extends React.Component {
 			<div id="dateContainer">
 				{
 					this.props.tournament ?
-						this.props.home.upcomingDates.map((d, i) => {
+						shared.vars.upcomingDates.map((d, i) => {
 							return (
 								<div className={`dateRow ${this.props.home.nextDateIndex === i ? 'currentDate' : ''} ${d.afterToday ? '' : 'oldDate'}`} key={d.name}>
 									<div className="label">{d.name}:</div>

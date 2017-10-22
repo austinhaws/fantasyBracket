@@ -41,7 +41,7 @@ class TournamentClass extends React.Component {
 	render() {
 		return (
 			this.props.tournamentEdit.tournament ? (
-				<div id="tournamentContainer">
+				<div className="editorContainer">
 					<div className="inputs">
 						<div key="title" className="title">Dates</div>
 						{

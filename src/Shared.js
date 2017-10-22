@@ -110,6 +110,8 @@ const shared = {
 		csrfComplete: false,
 		// ajaxes to call when csrf is gathered
 		delayAjaxes: [],
+		// moment information about tournament upcoming dates, since these are objects, they don't translate well to redux store state copying w/ json stringify/parse
+		upcomingDates: false,
 	},
 };
 

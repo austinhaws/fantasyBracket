@@ -6,7 +6,7 @@ import Conference from "./Conference";
 import Game from "./Game";
 import shared from "../Shared";
 
-class BracketClass extends React.Component {
+class RealBracketClass extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -37,19 +37,17 @@ class BracketClass extends React.Component {
 	}
 }
 
-BracketClass.PropTypes = {
-	// is this the real bracket being edited?
-	isReal: PropTypes.bool.isRequired,
+RealBracketClass.PropTypes = {
 	// the logged in user
 	user: PropTypes.object.isRequired,
 };
 
 // withRouter required so that routing isn't blocked: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
-const Bracket = withRouter(connect(
+const RealBracket = withRouter(connect(
 	state => state,
 	dispatch => {
 		return {}
 	},
-)(BracketClass));
+)(RealBracketClass));
 
-export default Bracket;
+export default RealBracket;

@@ -8,7 +8,8 @@ import store from './Store';
 import shared from './Shared';
 import Home from './home/Home';
 import Tournament from "./tournament/Tournament";
-import Bracket from "./bracket/Bracket";
+import RealBracket from "./realBracket/RealBracket";
+import GameEdit from "./gameEdit/GameEdit";
 
 
 class MenuItem extends React.Component {
@@ -44,8 +45,8 @@ class AppClass extends React.Component {
 		let admin = [];
 		if (this.props.user && this.props.user.isAdmin) {
 			admin = admin.concat([
-				<MenuItem key="tournament" url="tournament" title="Tournament"/>,
-				<MenuItem key="reports" url="reports" title="Reports"/>,
+				<MenuItem key="tournament" url="/tournament" title="Tournament"/>,
+				<MenuItem key="reports" url="/reports" title="Reports"/>,
 			]);
 		}
 		return (
@@ -56,8 +57,8 @@ class AppClass extends React.Component {
 					<div id="navigation">
 						{this.props.user ? <MenuItem key="account" isUser={true} url="/account" title={this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName}` : ''}/>: false}
 						<MenuItem account="home" url="./" title="Home" isCurrent={true}/>
-						<MenuItem key="myBracket" url="bracket" title="My Bracket"/>
-						<MenuItem key="realBracket" url="realBracket" title="Real Bracket"/>
+						<MenuItem key="myBracket" url="/bracket" title="My Bracket"/>
+						<MenuItem key="realBracket" url="/realBracket" title="Real Bracket"/>
 						{admin}
 					</div>
 					<div id="content">
@@ -65,7 +66,12 @@ class AppClass extends React.Component {
 							{/*<Route path='/html/deploy/:deployPk' render={props => <DeployEditor key={props.match.params.deployPk}/>}/>*/}
 							{/*<Route path='/html/history' component={History}/>*/}
 							{/*<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>*/}
-							<Route path='/realBracket' render={props => <Bracket isReal={true}/>}/>
+							<Route path='/realBracket/game/:conference/:round/:gameNumber' render={props => <GameEdit
+								conference={props.match.params.conference}
+								round={props.match.params.round}
+								gameNumber={props.match.params.gameNumber}
+							/>}/>
+							<Route path='/realBracket' render={props => <RealBracket/>}/>
 							<Route path='/tournament' component={Tournament}/>
 							<Route component={Home}/>
 						</Switch>

@@ -23,8 +23,6 @@ const store = createStore((state, action) => {
 		home: {
 			// which of the tournament's dates is the next upcoming event
 			nextDateIndex: undefined,
-			// converted dates to moment dates; keeps data in natural format for saving, but can uses moment for easier processing
-			upcomingDates: undefined,
 		},
 
 		// count of outstanding ajax requests

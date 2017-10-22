@@ -40,3 +40,17 @@
 	'14': '1d20 + 1d6',
 	'15': '1d20 + 0',
 	'16': '1d20 + 0'
+
+
+<div className={`game ${dragged ? 'dragged' : ''} ${droppable ? 'droppable' : ''}`}
+	// onMouseDown={() => this.props.startCellDrag(this.props.conference, this.props.round, this.props.gameNumber)}/>
+
+		const dragged = this.props.bracket.draggedGame
+			&& this.props.conference === this.props.bracket.draggedGame.conference
+			&& this.props.round === this.props.bracket.draggedGame.round
+			&& this.props.gameNumber === this.props.bracket.draggedGame.gameNumber;
+		const droppable = this.props.bracket.droppableGames && this.props.bracket.droppableGames.filter(d =>
+			this.props.conference === d.conference
+			&& this.props.round === d.round
+			&& this.props.gameNumber === d.gameNumber).length;
+
