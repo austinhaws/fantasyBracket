@@ -1,6 +1,8 @@
 import React from "react";
 import moment from "moment";
+import Conference from "./bracket/Conference";
 
+// !!!!  Be careful that no names match  !!! //
 let reducers = {
 	ACTION_TYPES: {
 		// == Generic == //
@@ -18,7 +20,11 @@ let reducers = {
 		TOURNAMENT: {
 			SET_DATE_FIELD: 'SET_DATE_FIELD',
 			SET_EDITING_TOURNAMENT: 'SET_EDITING_TOURNAMENT',
-		}
+		},
+		BRACKET: {
+			// clicked on a game and started dragging
+			START_DRAG: 'START_DRAG',
+		},
 	}
 };
 
@@ -89,6 +95,32 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT] = (state, acti
 		d.date = d.date.split('T')[0];
 		return d;
 	});
+	return result;
+};
+
+reducers[reducers.ACTION_TYPES.BRACKET.START_DRAG] = (state, action) => {
+	const result = Object.assign({}, state);
+	// quick and dirty full object deep copy
+	result.bracket = JSON.parse(JSON.stringify(result.bracket));
+	result.bracket.draggedGame = action.payload;
+	result.bracket.droppableGames = [];
+	let gameNumber = action.payload.gameNumber;
+	for (let x = action.payload.round + 1; x < 8; x++) {
+		const conference = x >= 6 ? Conference.CONFERENCES.FINALS : action.payload.conference;
+		if (x === 6 && (
+				action.payload.conference === Conference.CONFERENCES.TOP_RIGHT ||
+				action.payload.conference === Conference.CONFERENCES.BOTTOM_RIGHT
+			)) {
+			gameNumber = 1;
+		} else {
+			gameNumber = Math.floor(gameNumber /= 2);
+		}
+		result.bracket.droppableGames.push({
+			conference: conference,
+			round: x,
+			gameNumber: gameNumber,
+		})
+	}
 	return result;
 };
 

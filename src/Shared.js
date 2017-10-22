@@ -100,6 +100,10 @@ const shared = {
 				shared.funcs.getCurrentUser();
 			});
 		},
+
+		getGameByGameNumber: (conference, round, gameNumber) => {
+
+		}
 	},
 	vars: {
 		// has csrf been fetched?

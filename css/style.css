@@ -387,3 +387,10 @@ body {
 	display: flex;
 	align-items: center;
 }
+
+.game.droppable {
+	border: 1px solid red;
+}
+.game.dragged {
+	border: 1px solid blue;
+}

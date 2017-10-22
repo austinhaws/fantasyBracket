@@ -23,9 +23,9 @@ class BracketClass extends React.Component {
 			<div className="bracketContainerMiddle" key="middle">
 				<div className="conferenceContainer">
 					<div className="roundsContainer">
-						<Game round={6} gameNumber={0}/>
-						<Game round={7} gameNumber={0}/>
-						<Game round={6} gameNumber={1}/>
+						<Game conference={Conference.CONFERENCES.FINALS} round={6} gameNumber={0}/>
+						<Game conference={Conference.CONFERENCES.FINALS} round={7} gameNumber={0}/>
+						<Game conference={Conference.CONFERENCES.FINALS} round={6} gameNumber={1}/>
 					</div>
 				</div>
 			</div>

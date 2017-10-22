@@ -16,7 +16,7 @@ class ConferenceClass extends React.Component {
 		return (
 			<div className="conferenceContainer">
 				<div className="roundsContainer">
-					{Object.keys(this.conference.rounds).map(i => <Round round={i} key={`round-${i}`} games={this.conference.rounds[i]}/>)}
+					{Object.keys(this.conference.rounds).map(i => <Round conference={this.props.conference} round={parseInt(i, 10)} key={`round-${i}`} games={this.conference.rounds[i]}/>)}
 				</div>
 			</div>
 		);
@@ -40,6 +40,7 @@ Conference.CONFERENCES = {
 	"BOTTOM_LEFT": "bottomLeft",
 	"TOP_RIGHT": "topRight",
 	"BOTTOM_RIGHT": "bottomRight",
+	"FINALS": "finals",
 };
 
 export default Conference;
