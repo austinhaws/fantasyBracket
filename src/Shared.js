@@ -101,8 +101,8 @@ const shared = {
 			});
 		},
 
-		getGameByGameNumber: (conference, round, gameNumber) => {
-
+		getGame: ({conference, round, gameNumber}) => {
+			return store.getState().tournament.games[conference].rounds[round][gameNumber];
 		}
 	},
 	vars: {

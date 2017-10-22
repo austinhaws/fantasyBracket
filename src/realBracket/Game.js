@@ -9,7 +9,11 @@ class GameClass extends React.Component {
 	render() {
 		return (
 			<Route render={({history}) => (
-				<div className="game" onClick={() => history.push(`realBracket/game/${this.props.conference}/${this.props.round}/${this.props.gameNumber}`)}>
+				<div className="game" onClick={() => {
+					if (this.props.round > 1) {
+						history.push(`realBracket/game/${this.props.conference}/${this.props.round}/${this.props.gameNumber}`);
+					}
+				}}>
 					{`${this.props.round}-${this.props.gameNumber}`}
 				</div>
 			)}/>
