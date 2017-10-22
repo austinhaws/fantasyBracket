@@ -3,5 +3,6 @@
 	[ ] red menu item for current bracket if don't yet have one
 [ ] account page - for email notifications like upcoming dates and round notifications - default all settings to off
 
-[ ] .htaccess to make all urls go to index.html file but retain url
 [ ] tournament detail page - set dates
+
+[ ] bracket is not editable after bracket entry date

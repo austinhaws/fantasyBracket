@@ -353,3 +353,37 @@ body {
 	left: 0;
 	height: 100%;
 }
+
+
+.bracketContainer {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+}
+.roundsContainer {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+}
+.roundContainer {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+.bracketContainerRight .roundsContainer {
+	flex-direction: row-reverse;
+}
+.game {
+	padding: 8px;
+	width: 100px;
+}
+.bracketContainerMiddle .conferenceContainer, .bracketContainerMiddle .roundsContainer {
+	height: 100%;
+}
+.bracketContainerMiddle .roundsContainer {
+	align-content: center;
+}
+.bracketContainerMiddle .game {
+	display: flex;
+	align-items: center;
+}
