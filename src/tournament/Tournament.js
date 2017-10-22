@@ -43,6 +43,7 @@ class TournamentClass extends React.Component {
 			this.props.tournamentEdit.tournament ? (
 				<div id="tournamentContainer">
 					<div className="inputs">
+						<div key="title" className="title">Dates</div>
 						{
 							this.props.tournamentEdit.tournament ?
 								<div>
@@ -57,6 +58,14 @@ class TournamentClass extends React.Component {
 								: false
 						}
 					</div>
+
+					<div className="inputs">
+						<div key="title" className="title">Rolls</div>
+						{[...Array(16)].map((_, i) =>
+							<DateInput key={i} label={`Rank ${i + 1}`} value={this.props.tournamentEdit.tournament.rolls[i + 1]} dateChanged={value => this.props.changeTournamentRoll(i + 1, value)}/>
+						)}
+					</div>
+
 					<Route render={({history}) => (
 						<div className="buttonContainer">
 							<Button key="cancel" label="Cancel" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.BLUE_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
@@ -75,12 +84,16 @@ TournamentClass.PropTypes = {
 
 	// if tournament not set then will ajax for it
 	tournament: PropTypes.object,
+
+	// == dispatch == //
+	changeTournamentRoll: PropTypes.func.isRequired,
 };
 
 const Tournament = withRouter(connect(
 	state => state,
 	dispatch => {
 		return {
+			changeTournamentRoll: (index, value) => dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_ROLL_FIELD, payload: {index: index, value: value}}),
 			changeTournamentDateField: (index, value) => dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD, payload: {index: index, value: value}}),
 			setTournamentEdit: tournament => dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT, payload: tournament}),
 		}

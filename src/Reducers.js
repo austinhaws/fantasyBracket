@@ -19,6 +19,7 @@ let reducers = {
 
 		TOURNAMENT: {
 			SET_DATE_FIELD: 'SET_DATE_FIELD',
+			SET_ROLL_FIELD: 'SET_ROLL_FIELD',
 			SET_EDITING_TOURNAMENT: 'SET_EDITING_TOURNAMENT',
 		},
 		BRACKET: {
@@ -85,6 +86,14 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD] = (state, action) => {
 	result.tournamentEdit.tournament = Object.assign({}, result.tournamentEdit.tournament);
 	result.tournamentEdit.tournament.dates = result.tournamentEdit.tournament.dates.map(d => Object.assign({}, d));
 	result.tournamentEdit.tournament.dates[action.payload.index].date = action.payload.value;
+	return result;
+};
+
+reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_ROLL_FIELD] = (state, action) => {
+	const result = Object.assign({}, state);
+	// assumes editing tournament is already loaded
+	result.tournamentEdit = JSON.parse(JSON.stringify(result.tournamentEdit));
+	result.tournamentEdit.tournament.rolls[action.payload.index] = action.payload.value;
 	return result;
 };
 

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import reducers from "../Reducers";
 import {connect} from "react-redux";
-import Conference from "./Conference";
 
 
 class GameClass extends React.Component {
@@ -15,14 +14,6 @@ class GameClass extends React.Component {
 			this.props.conference === d.conference
 			&& this.props.round === d.round
 			&& this.props.gameNumber === d.gameNumber).length;
-
-if (this.props.round === 2 && this.props.gameNumber === 3 && this.props.conference === Conference.CONFERENCES.TOP_LEFT) {
-	console.log(dragged, droppable, {
-		conference: this.props.conference,
-		round: this.props.round,
-		gameNumber: this.props.gameNumber,
-	}, this.props.bracket.draggedGame, this.props.bracket.droppableGames);
-}
 
 		return <div
 			className={`game ${dragged ? 'dragged' : ''} ${droppable ? 'droppable' : ''}`}

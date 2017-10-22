@@ -12,3 +12,31 @@
 	[ ] drag from round 2 (shows 3, 4, 5, 6, 7, 8 rounds as droppable) drop in round 6 and auto fills rounds 3, 4, 5
 
 [ ] auto determine next game id by convfernce/round/(gameidx/2)
+
+
+[ ] Probably should get real teams put in to games now.
+
+[ ] on "real" bracket, click a game to go to the game editor where it shows the two teams and can enter score and pick winner and enter points gained from the win
+	points = 1, 2, 4, 8, 16, 32, 64 for picking winner
+	upset = X2 points
+	[ ] on game editor have a "next game" button that saves the current game and goes to the next game in the round
+	[ ] also record who rolled for that team
+	[ ] show roll for that game
+
+
+	'1': '1d20 + 5d6',
+	'2': '1d20 + 5d6',
+	'3': '1d20 + 4d6',
+	'4': '1d20 + 4d6',
+	'5': '1d20 + 3d6',
+	'6': '1d20 + 3d6',
+	'7': '1d20 + 2d6',
+	'8': '1d20 + 2d6',
+	'9': '1d20 + 2d6',
+	'10': '1d20 + 2d6',
+	'11': '1d20 + 2d6',
+	'12': '1d20 + 2d6',
+	'13': '1d20 + 1d6',
+	'14': '1d20 + 1d6',
+	'15': '1d20 + 0',
+	'16': '1d20 + 0'

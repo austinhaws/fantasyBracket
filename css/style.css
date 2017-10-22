@@ -115,6 +115,9 @@ body {
 	justify-content: space-around;
 	width: 400px;
 }
+#tournamentContainer .inputs {
+	flex-direction: column;
+}
 
 #tournamentContainer .inputGroup {
 	display: flex;
@@ -127,7 +130,7 @@ body {
 
 #tournamentContainer .inputGroup .label {
 	font-weight: bold;
-	margin-right: 3px;
+	margin-right: 9px;
 	width: 200px;
 	text-align: right;
 	padding-top: 3px;
@@ -393,4 +396,15 @@ body {
 }
 .game.dragged {
 	border: 1px solid blue;
+}
+#tournamentContainer .title {
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 12px;
+	padding-top: 14px;
+	border-top: 1px dotted #aaa;
+}
+#tournamentContainer .inputs:first-child .title {
+	border-top: none;
 }
