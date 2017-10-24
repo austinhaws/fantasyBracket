@@ -4,7 +4,7 @@ import {Route, withRouter} from "react-router";
 import PropTypes from "prop-types";
 import shared from "../Shared";
 import {Button, InputInformation} from "dts-react-common";
-import Conference from "../realBracket/Conference";
+import reducers from "../Reducers";
 
 class GameEditClass extends React.Component {
 	constructor(props) {
@@ -15,27 +15,14 @@ class GameEditClass extends React.Component {
 		}
 	}
 
+	editField(field, value) {
+		this.props.changeGameField(this.props.conference, this.props.round, this.props.gameNumber, field, value);
+	}
+
 	render() {
 		if (!this.props.tournament) {
 			return false;
 		}
-		// get previous game winner
-		if (this.props.conference === Conference.CONFERENCES.FINALS) {
-			throw 'do not know what conference the previous teams came from...';
-		}
-		const previousGame1Info = {
-			conference: this.props.conference,
-			round: this.props.round - 1,
-			gameNumber: this.props.gameNumber * 2,
-		};
-		const previousGame1 = shared.funcs.getGame(previousGame1Info);
-
-		const previousGame2Info = {
-			conference: this.props.conference,
-			round: this.props.round - 1,
-			gameNumber: this.props.gameNumber * 2 + 1,
-		};
-		const previousGame2 = shared.funcs.getGame(previousGame2Info);
 
 		const gameInfo = {
 			conference: this.props.conference,
@@ -44,19 +31,72 @@ class GameEditClass extends React.Component {
 		};
 		const game = shared.funcs.getGame(gameInfo);
 
+		const team1 = shared.funcs.getTeam(game.topTeamId);
+		const team2 = shared.funcs.getTeam(game.bottomTeamId);
+
 		// get teams from previous round
 		// show teams and information
-console.log(previousGame1, previousGame2, game);
 		return (
 			<div className="editorContainer">
 				<div className="inputs">
 					<div key="title" className="title">{`${this.props.tournament.conferences[gameInfo.conference]} - Round ${gameInfo.round} - Game ${gameInfo.gameNumber}`}</div>
 				</div>
 
+				<div className="inputColumns">
+					<div className="inputColumn">
+						<div className="teamName">{`${team1.name} (${team1.rank})`}</div>
+						<div className="inputGroup">
+							<div className="label">Roll</div>
+							<div className="input">{this.props.tournament.rolls[team1.rank]}</div>
+						</div>
+						<div className="inputGroup">
+							<div className="label">Roll Result</div>
+							<div className="input"><input type="text" className="dataFont" value={game.topTeamScore ? game.topTeamScore : ''} onChange={e => this.editField('topTeamScore', e.target.value)}/></div>
+						</div>
+						<div className="inputGroup">
+							<div className="label">Who Rolled</div>
+							<div className="input"><input type="text" className="dataFont" value={game.topTeamRoller ? game.topTeamRoller : ''} onChange={e => this.editField('topTeamRoller', e.target.value)}/></div>
+						</div>
+						<div className="inputGroup buttons">
+							<Button
+								label="Winner"
+								color={game.topTeamId === game.winningTeamId ? Button.BACKGROUND_COLOR.GREEN_LIGHTTONE : Button.BACKGROUND_COLOR.LIGHT_GRAY}
+								size={InputInformation.SIZE_SMALL}
+								clickedCallback={() => this.editField('winningTeamId', game.topTeamId)}/>
+						</div>
+					</div>
+
+					<div className="inputColumn">
+						<div className="teamName">{`${team2.name} (${team2.rank})`}</div>
+						<div className="inputGroup">
+							<div className="label">Roll</div>
+							<div className="input">{this.props.tournament.rolls[team2.rank]}</div>
+						</div>
+						<div className="inputGroup">
+							<div className="label">Roll Result</div>
+							<div className="input"><input type="text" className="dataFont" value={game.bottomTeamScore ? game.bottomTeamScore : ''} onChange={e => this.editField('bottomTeamScore', e.target.value)}/></div>
+						</div>
+						<div className="inputGroup">
+							<div className="label">Who Rolled</div>
+							<div className="input"><input type="text" className="dataFont" value={game.bottomTeamRoller ? game.bottomTeamRoller : ''} onChange={e => this.editField('bottomTeamRoller', e.target.value)}/></div>
+						</div>
+						<div className="inputGroup buttons">
+							<Button
+								label="Winner"
+								color={game.bottomTeamId === game.winningTeamId ? Button.BACKGROUND_COLOR.GREEN_LIGHTTONE : Button.BACKGROUND_COLOR.LIGHT_GRAY}
+								size={InputInformation.SIZE_SMALL}
+								clickedCallback={() => this.editField('winningTeamId', game.bottomTeamId)}/>
+						</div>
+					</div>
+				</div>
+
+
 				<Route render={({history}) => (
 					<div className="buttonContainer">
-						<Button key="cancel" label="Cancel" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.BLUE_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
+						<Button key="previous" label="Previous" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL}/>
+						<Button key="cancel" label="Cancel" clickedCallback={history.goBack} color={Button.BACKGROUND_COLOR.BLUE_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
 						<Button key="save" label="Save" clickedCallback={() => this.saveTournament(history)} color={Button.BACKGROUND_COLOR.GREEN_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
+						<Button key="next" label="Next" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL}/>
 					</div>
 				)}/>
 			</div>
@@ -77,7 +117,15 @@ GameEditClass.PropTypes = {
 const GameEdit = withRouter(connect(
 	state => state,
 	dispatch => {
-		return {}
+		return {
+			changeGameField: (conference, round, gameNumber, field, value) => dispatch({type: reducers.ACTION_TYPES.GAME_EDIT.UPDATE_GAME_FIELD, payload: {
+				conference: conference,
+				round: round,
+				gameNumber: gameNumber,
+				field: field,
+				value: value,
+			}}),
+		}
 	},
 )(GameEditClass));
 

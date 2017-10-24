@@ -133,7 +133,6 @@ body {
 	margin-right: 9px;
 	width: 200px;
 	text-align: right;
-	padding-top: 3px;
 }
 
 .button {
@@ -399,7 +398,7 @@ body {
 }
 .editorContainer .title {
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 27px;
 	text-align: center;
 	margin-bottom: 12px;
 	padding-top: 14px;
@@ -407,4 +406,30 @@ body {
 }
 .editorContainer .inputs:first-child .title {
 	border-top: none;
+}
+
+.inputColumns {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.inputColumn {
+	border-left: 1px dotted #aaa;
+	margin: 7px 0;
+}
+.inputColumn:first-child {
+	border-left: none;
+}
+
+.inputColumn .teamName {
+	font-weight: bold;
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 17px;
+}
+.inputGroup.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 23px;
 }

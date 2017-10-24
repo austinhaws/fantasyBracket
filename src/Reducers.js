@@ -27,6 +27,9 @@ let reducers = {
 			// clicked on a game and started dragging
 			START_DRAG: 'START_DRAG',
 		},
+		GAME_EDIT: {
+			UPDATE_GAME_FIELD: 'UPDATE_GAME_FIELD',
+		},
 	}
 };
 
@@ -136,6 +139,12 @@ reducers[reducers.ACTION_TYPES.BRACKET.START_DRAG] = (state, action) => {
 			gameNumber: gameNumber,
 		})
 	}
+	return result;
+};
+
+reducers[reducers.ACTION_TYPES.GAME_EDIT.UPDATE_GAME_FIELD] = (state, action) => {
+	const result = copyState(state);
+	result.tournament.games[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber][action.payload.field] = action.payload.value;
 	return result;
 };
 

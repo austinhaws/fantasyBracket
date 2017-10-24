@@ -1,4 +1,7 @@
 [ ] reports menu - admin only
+	[ ] real bracket
+	[ ] scores
+	[ ] roll strips - show rank and roll so that rolling can go smoother
 [ ] menu items - bold for current location : probably menu item component and pass path/title to it
 	[ ] red menu item for current bracket if don't yet have one
 [ ] account page - for email notifications like upcoming dates and round notifications - default all settings to off
@@ -16,6 +19,8 @@
 
 [ ] Probably should get real teams put in to games now.
 
+[ ] when winning team picked, auto put it in the next round
+
 [ ] on "real" bracket, click a game to go to the game editor where it shows the two teams and can enter score and pick winner and enter points gained from the win
 	points = 1, 2, 4, 8, 16, 32, 64 for picking winner
 	upset = X2 points
@@ -23,24 +28,8 @@
 	[ ] also record who rolled for that team
 	[ ] show roll for that game
 
-
-	'1': '1d20 + 5d6',
-	'2': '1d20 + 5d6',
-	'3': '1d20 + 4d6',
-	'4': '1d20 + 4d6',
-	'5': '1d20 + 3d6',
-	'6': '1d20 + 3d6',
-	'7': '1d20 + 2d6',
-	'8': '1d20 + 2d6',
-	'9': '1d20 + 2d6',
-	'10': '1d20 + 2d6',
-	'11': '1d20 + 2d6',
-	'12': '1d20 + 2d6',
-	'13': '1d20 + 1d6',
-	'14': '1d20 + 1d6',
-	'15': '1d20 + 0',
-	'16': '1d20 + 0'
-
+[ ] publish roll engine as npm module, what other roll engines are out there?
+[ ] get correct order of ranked teams for conferences
 
 <div className={`game ${dragged ? 'dragged' : ''} ${droppable ? 'droppable' : ''}`}
 	// onMouseDown={() => this.props.startCellDrag(this.props.conference, this.props.round, this.props.gameNumber)}/>
