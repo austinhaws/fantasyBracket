@@ -66,7 +66,7 @@ class GameEditClass extends React.Component {
 		return (
 			<div className="editorContainer">
 				<div className="inputs">
-					<div key="title" className="title">{`${this.props.tournament.conferences[gameInfo.conference]} - Round ${gameInfo.round - 1} - Game ${parseInt(gameInfo.gameNumber, 10) + 1}`}</div>
+					<div key="title" className="title">{`${this.props.tournament.conferences[gameInfo.conference].name} - Round ${gameInfo.round - 1} - Game ${parseInt(gameInfo.gameNumber, 10) + 1}`}</div>
 				</div>
 
 				<div className="inputColumns">
