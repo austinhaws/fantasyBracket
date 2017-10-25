@@ -1,53 +1,42 @@
+== tournament edit ==
+[ ] conference titles on tournament page
 [ ] when saving an edited game, also update the next game with the picked winner
 [ ] on tournament editor, if game clicked but doesn't have both teams, then show alert instead of going to editor
 
 
-
-
-
-[ ] conference titles on tournament page
-
-[ ] reports menu - admin only
-	[ ] real bracket
-	[ ] scores
-	[ ] roll strips - show rank and roll so that rolling can go smoother
-[ ] red menu item for current bracket if don't yet have one
-[ ] account page - for email notifications like upcoming dates and round notifications - default all settings to off
-
-[ ] tournament detail page - set dates
-
+== my bracket ==
 [ ] bracket is not editable after bracket entry date
-
+[ ] red menu item for current bracket if don't yet have one
 [ ] drag and drop team to any place in the bracket to auto fill it through to the that game
 [ ] when drag and dropping, show possible targets with a different UI so that it's easy to see where that team can go
 	[ ] drag from round 2 (shows 3, 4, 5, 6, 7, 8 rounds as droppable) drop in round 6 and auto fills rounds 3, 4, 5
 
-[ ] auto determine next game id by convfernce/round/(gameidx/2)
 
 
-[ ] Probably should get real teams put in to games now.
 
-[ ] when winning team picked, auto put it in the next round
+== Other ==
+[ ] reports menu - admin only
+	[ ] real bracket
+	[ ] scores
+	[ ] roll strips - show rank and roll so that rolling can go smoother
 
-[ ] on "real" bracket, click a game to go to the game editor where it shows the two teams and can enter score and pick winner and enter points gained from the win
-	points = 1, 2, 4, 8, 16, 32, 64 for picking winner
-	upset = X2 points
-	[ ] on game editor have a "next game" button that saves the current game and goes to the next game in the round
-	[ ] also record who rolled for that team
-	[ ] show roll for that game
+[ ] account page - for email notifications like upcoming dates and round notifications - default all settings to off
 
-[ ] publish roll engine as npm module, what other roll engines are out there?
-[ ] get correct order of ranked teams for conferences
 
+/*  == Drag ANd Drop Detector ==
 <div className={`game ${dragged ? 'dragged' : ''} ${droppable ? 'droppable' : ''}`}
 	// onMouseDown={() => this.props.startCellDrag(this.props.conference, this.props.round, this.props.gameNumber)}/>
 
-		const dragged = this.props.bracket.draggedGame
-			&& this.props.conference === this.props.bracket.draggedGame.conference
-			&& this.props.round === this.props.bracket.draggedGame.round
-			&& this.props.gameNumber === this.props.bracket.draggedGame.gameNumber;
-		const droppable = this.props.bracket.droppableGames && this.props.bracket.droppableGames.filter(d =>
-			this.props.conference === d.conference
-			&& this.props.round === d.round
-			&& this.props.gameNumber === d.gameNumber).length;
+const dragged = this.props.bracket.draggedGame
+	&& this.props.conference === this.props.bracket.draggedGame.conference
+	&& this.props.round === this.props.bracket.draggedGame.round
+	&& this.props.gameNumber === this.props.bracket.draggedGame.gameNumber;
+const droppable = this.props.bracket.droppableGames && this.props.bracket.droppableGames.filter(d =>
+	this.props.conference === d.conference
+	&& this.props.round === d.round
+	&& this.props.gameNumber === d.gameNumber).length;
+*/
 
+
+
+[ ] publish roll engine as npm module, what other roll engines are out there?

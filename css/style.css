@@ -429,11 +429,32 @@ body {
 .bracketContainerRight .game {
 	justify-content: flex-end;
 }
+.game .loser {
+	text-decoration: line-through;
+}
 .bracketContainerMiddle .conferenceContainer, .bracketContainerMiddle .roundsContainer {
 	height: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+}
+.conferenceTitle {
+	position: relative;
+	left: -10px;
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+.conferenceContainer:first-child .conferenceTitle {
+	margin-top:0;
+}
+.bracketContainerRight .conferenceTitle {
+	text-align: right;
+	left: 10px;
+}
+.conferenceTitle {
+	margin-top: 20px;
 }
 .bracketContainerMiddle .roundsContainer {
 	align-content: center;

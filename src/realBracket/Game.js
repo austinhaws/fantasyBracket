@@ -24,7 +24,7 @@ class GameClass extends React.Component {
 						history.push(`realBracket/game/${this.props.conference}/${this.props.round}/${this.props.gameNumber}`);
 					}
 				}}>
-					{[team, teamTop, teamBottom].filter(t => t).map((t, i) => <div key={i}>{this.teamName(t)}</div>)}
+					{[team, teamTop, teamBottom].filter(t => t.name).map((t, i) => <div key={i} className={(team && game.winningTeamId && (game.winningTeamId !== t.teamId)) ? 'loser' : false}>{this.teamName(t)}</div>)}
 				</div>
 			)}/>
 		);

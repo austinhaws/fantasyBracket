@@ -15,6 +15,7 @@ class ConferenceClass extends React.Component {
 	render() {
 		return (
 			<div className="conferenceContainer">
+				<div className="conferenceTitle">{this.conference.name}</div>
 				<div className="roundsContainer">
 					{Object.keys(this.conference.rounds).map(i => <Round conference={this.props.conference} round={parseInt(i, 10)} key={`round-${i}`} games={this.conference.rounds[i]}/>)}
 				</div>

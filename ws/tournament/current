@@ -254,7 +254,7 @@
 	  }
 	},
 	"bottomLeft": {
-	  "name": "Socks",
+	  "name": "Colors",
 	  "rounds": {
 		"1": [
 		  {
@@ -467,7 +467,7 @@
 	  }
 	},
 	"topRight": {
-	  "name": "Colors",
+	  "name": "Socks",
 	  "rounds": {
 		"1": [
 		  {
