@@ -67,6 +67,7 @@ class AppClass extends React.Component {
 							{/*<Route path='/html/history' component={History}/>*/}
 							{/*<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>*/}
 							<Route path='/realBracket/game/:conference/:round/:gameNumber' render={props => <GameEdit
+								key={props.match.params.conference + props.match.params.round + props.match.params.gameNumber}
 								conference={props.match.params.conference}
 								round={props.match.params.round}
 								gameNumber={props.match.params.gameNumber}

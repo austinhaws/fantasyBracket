@@ -6,6 +6,7 @@ import shared from "../Shared";
 import {Button, InputInformation} from "dts-react-common";
 import reducers from "../Reducers";
 import store from "../Store";
+import Conference from "../realBracket/Conference";
 
 class GameEditClass extends React.Component {
 	constructor(props) {
@@ -54,6 +55,7 @@ class GameEditClass extends React.Component {
 			round: this.props.round,
 			gameNumber: this.props.gameNumber,
 		};
+		const numGamesInRound = (this.props.conference === Conference.CONFERENCES.FINALS ? ['1', '0'] : ['63', '15', '7', '3', '1', '0'])[this.props.round];
 		const game = this.props.gameEdit.game;
 
 		const team1 = shared.funcs.getTeam(game.topTeamId);
@@ -64,7 +66,7 @@ class GameEditClass extends React.Component {
 		return (
 			<div className="editorContainer">
 				<div className="inputs">
-					<div key="title" className="title">{`${this.props.tournament.conferences[gameInfo.conference]} - Round ${gameInfo.round} - Game ${gameInfo.gameNumber}`}</div>
+					<div key="title" className="title">{`${this.props.tournament.conferences[gameInfo.conference]} - Round ${gameInfo.round - 1} - Game ${parseInt(gameInfo.gameNumber, 10) + 1}`}</div>
 				</div>
 
 				<div className="inputColumns">
@@ -124,10 +126,10 @@ class GameEditClass extends React.Component {
 
 				<Route render={({history}) => (
 					<div className="buttonContainer">
-						<Button key="previous" label="Previous" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL}/>
+						<Button key="previous" label="Previous" clickedCallback={() => history.push(`/realBracket/game/${this.props.conference}/${this.props.round}/${parseInt(this.props.gameNumber, 10) - 1}`)} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL} disabled={this.props.gameNumber === '0'}/>
 						<Button key="cancel" label="Cancel" clickedCallback={history.goBack} color={Button.BACKGROUND_COLOR.BLUE_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
-						<Button key="save" label="Save" clickedCallback={() => this.saveGame(history)} color={Button.BACKGROUND_COLOR.GREEN_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
-						<Button key="next" label="Next" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL}/>
+						<Button key="save" label="Save" clickedCallback={this.saveGame.bind(this)} color={Button.BACKGROUND_COLOR.GREEN_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
+						<Button key="next" label="Next" clickedCallback={() => history.push(`/realBracket/game/${this.props.conference}/${this.props.round}/${parseInt(this.props.gameNumber, 10) + 1}`)} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL} disabled={this.props.gameNumber === numGamesInRound}/>
 					</div>
 				)}/>
 			</div>

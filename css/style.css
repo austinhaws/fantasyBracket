@@ -378,6 +378,7 @@ body {
 .game {
 	padding: 8px;
 	width: 100px;
+	cursor: pointer;
 }
 .bracketContainerMiddle .conferenceContainer, .bracketContainerMiddle .roundsContainer {
 	height: 100%;
@@ -432,4 +433,8 @@ body {
 	flex-direction: row;
 	justify-content: space-around;
 	margin-top: 23px;
+}
+.button.disabled {
+	background-color: #eee;
+	cursor: default;
 }

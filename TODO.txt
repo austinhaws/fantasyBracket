@@ -1,4 +1,5 @@
 [ ] prev/next game edit buttons
+[ ] data - put conference data all in the conferences - this will change how react gets to the data, but then it's not spread all over
 
 [ ] reports menu - admin only
 	[ ] real bracket
