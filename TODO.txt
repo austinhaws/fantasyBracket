@@ -3,14 +3,17 @@
 
 
 == my bracket ==
-[ ] bracket is not editable after bracket entry date
-[ ] red menu item for current bracket if don't yet have one
+[ ] bracket is not editable after bracket entry date or <= teams picked date
+[ ] red menu item for current bracket if don't yet have one and after teams picked date
 [ ] drag and drop team to any place in the bracket to auto fill it through to the that game
 [ ] when drag and dropping, show possible targets with a different UI so that it's easy to see where that team can go
 	[ ] drag from round 2 (shows 3, 4, 5, 6, 7, 8 rounds as droppable) drop in round 6 and auto fills rounds 3, 4, 5
+[ ] use same conference/round components, but use an picker game component for the game.
 
 
 == build webservice ==
+[ ] take deployer and strip it since this already is doing html only pages
+[ ] do tomcat so others can play with it
 
 == Other ==
 [ ] reports menu - admin only
@@ -34,7 +37,3 @@ const droppable = this.props.bracket.droppableGames && this.props.bracket.droppa
 	&& this.props.round === d.round
 	&& this.props.gameNumber === d.gameNumber).length;
 */
-
-
-
-[ ] publish roll engine as npm module, what other roll engines are out there?

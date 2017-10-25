@@ -57,6 +57,9 @@ class TournamentClass extends React.Component {
 								</div>
 								: false
 						}
+						<ul key="notes">
+							<li>My Bracket menu item will become available >= teams picked date</li>
+						</ul>
 					</div>
 
 					<div className="inputs">

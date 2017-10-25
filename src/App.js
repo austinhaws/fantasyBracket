@@ -10,6 +10,7 @@ import Home from './home/Home';
 import Tournament from "./tournament/Tournament";
 import RealBracket from "./realBracket/RealBracket";
 import GameEdit from "./gameEdit/GameEdit";
+import moment from "moment";
 
 
 class MenuItem extends React.Component {
@@ -45,6 +46,7 @@ class AppClass extends React.Component {
 				<MenuItem key="reports" url="/reports" title="Reports"/>,
 			]);
 		}
+		const myBracketAvailable = shared.vars.upcomingDates && shared.vars.upcomingDates[1].momentDate.isSameOrBefore(moment());
 		return (
 			<div id="app">
 				<div id="title">Fantasy Bracket</div>
@@ -53,7 +55,7 @@ class AppClass extends React.Component {
 					<div id="navigation">
 						{this.props.user ? <MenuItem key="account" isUser={true} url="/account" title={this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName}` : ''}/>: false}
 						<MenuItem account="home" url="/" title="Home" isCurrent={true}/>
-						<MenuItem key="myBracket" url="/bracket" title="My Bracket"/>
+						{myBracketAvailable ? <MenuItem key="myBracket" url="/bracket" title="My Bracket"/> : false}
 						<MenuItem key="realBracket" url="/realBracket" title="Real Bracket"/>
 						{admin}
 					</div>
@@ -85,6 +87,7 @@ class AppClass extends React.Component {
 AppClass.PropTypes = {
 	// the current logged in user, not required because it is undefined until it is ajax fetched
 	user: PropTypes.object,
+	tournament: PropTypes.object,
 
 	ajaxingCount: PropTypes.number.isRequired,
 };

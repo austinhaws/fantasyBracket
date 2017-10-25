@@ -98,6 +98,7 @@ const shared = {
 
 				// get user information
 				shared.funcs.getCurrentUser();
+				shared.funcs.getCurrentTournament();
 			});
 		},
 
