@@ -3,10 +3,20 @@ import PropTypes from "prop-types";
 import reducers from "../Reducers";
 import {connect} from "react-redux";
 import {Route} from "react-router";
+import shared from "../Shared";
 
 
 class GameClass extends React.Component {
+	teamName(team) {
+		return team ? `${team.name} (${team.rank})` : false;
+	}
 	render() {
+		const game = shared.funcs.getGame(this.props);
+
+		const team = shared.funcs.getTeam(game.teamId);
+		const teamTop = shared.funcs.getTeam(game.topTeamId);
+		const teamBottom = shared.funcs.getTeam(game.bottomTeamId);
+
 		return (
 			<Route render={({history}) => (
 				<div className="game" onClick={() => {
@@ -14,7 +24,7 @@ class GameClass extends React.Component {
 						history.push(`realBracket/game/${this.props.conference}/${this.props.round}/${this.props.gameNumber}`);
 					}
 				}}>
-					{`${this.props.round}-${this.props.gameNumber}`}
+					{[team, teamTop, teamBottom].filter(t => t).map((t, i) => <div key={i}>{this.teamName(t)}</div>)}
 				</div>
 			)}/>
 		);

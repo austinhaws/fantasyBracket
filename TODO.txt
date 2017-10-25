@@ -1,5 +1,7 @@
 [ ] prev/next game edit buttons
 [ ] data - put conference data all in the conferences - this will change how react gets to the data, but then it's not spread all over
+[ ] when saving an edited game, also update the next game with the picked winner
+[ ] on tournament editor, if game clicked but doesn't have both teams, then show alert instead of going to editor
 
 [ ] reports menu - admin only
 	[ ] real bracket

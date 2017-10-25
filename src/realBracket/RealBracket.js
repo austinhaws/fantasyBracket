@@ -14,26 +14,51 @@ class RealBracketClass extends React.Component {
 			shared.funcs.getCurrentTournament();
 		}
 	}
+
 	render() {
-		return !this.props.tournament ? false: <div className="bracketContainer">
-			<div className="bracketContainerLeft" key="left">
-				<Conference conference={Conference.CONFERENCES.TOP_LEFT}/>
-				<Conference conference={Conference.CONFERENCES.BOTTOM_LEFT}/>
-			</div>
-			<div className="bracketContainerMiddle" key="middle">
-				<div className="conferenceContainer">
-					<div className="roundsContainer">
-						<Game conference={Conference.CONFERENCES.FINALS} round={6} gameNumber={0}/>
-						<Game conference={Conference.CONFERENCES.FINALS} round={7} gameNumber={0}/>
-						<Game conference={Conference.CONFERENCES.FINALS} round={6} gameNumber={1}/>
+		if (!this.props.tournament) {
+			return false;
+		}
+
+		return (
+			<div className="bracketTopContainer">
+				<div className="roundTitles">
+					{
+						[1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
+							.map(r => {
+								const round = shared.funcs.getRoundInfo(r);
+								const roundName = round.length ? round[0].name : '';
+								const roundDate = round.length ? round[0].date.split('T')[0] : String.fromCharCode(0x200b);
+
+								return (
+									<div className="roundTitle">
+										<div key="round">{roundName}</div>
+										<div key="date">{roundDate}</div>
+									</div>
+								)})
+					}
+				</div>
+				<div className="bracketContainer">
+					<div className="bracketContainerLeft" key="left">
+						<Conference conference={Conference.CONFERENCES.TOP_LEFT}/>
+						<Conference conference={Conference.CONFERENCES.BOTTOM_LEFT}/>
+					</div>
+					<div className="bracketContainerMiddle" key="middle">
+						<div className="conferenceContainer">
+							<div className="roundsContainer">
+								<Game conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={0}/>
+								<Game conference={Conference.CONFERENCES.FINALS} round={2} gameNumber={0}/>
+								<Game conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={1}/>
+							</div>
+						</div>
+					</div>
+					<div className="bracketContainerRight" key="right">
+						<Conference conference={Conference.CONFERENCES.TOP_RIGHT}/>
+						<Conference conference={Conference.CONFERENCES.BOTTOM_RIGHT}/>
 					</div>
 				</div>
 			</div>
-			<div className="bracketContainerRight" key="right">
-				<Conference conference={Conference.CONFERENCES.TOP_RIGHT}/>
-				<Conference conference={Conference.CONFERENCES.BOTTOM_RIGHT}/>
-			</div>
-		</div>;
+		);
 	}
 }
 

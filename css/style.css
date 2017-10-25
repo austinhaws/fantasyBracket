@@ -375,13 +375,66 @@ body {
 .bracketContainerRight .roundsContainer {
 	flex-direction: row-reverse;
 }
-.game {
+.roundTitles {
+	display: flex;
+	flex-direction: row;
+	border-left: 1px solid #fff;
+}
+.roundTitle:nth-child(7) {
+	width: 164px;
+}
+.roundTitle {
+	flex-direction: column;
+	align-items: center;
+}
+.roundTitle, .game {
 	padding: 8px;
 	width: 100px;
+	display: flex;
+	justify-content: space-around;
+}
+.roundTitle div:first-child {
+	font-weight: bold;
+}
+.roundTitle div:last-child {
+	font-style: italic;
+	font-size: 11px;
+}
+.game {
 	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	border-left: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	font-size: 11px;
+}
+.bracketContainerRight .game, .bracketContainerMiddle .game:last-child {
+	border-left: none;
+	border-right: 1px solid #aaa;
+	align-items: flex-end;
+}
+.bracketContainerMiddle .game:nth-child(2) {
+	border-left: none;
+	border-right: none;
+	margin-left: 24px;
+	margin-right: 24px;
+}
+.game:last-child, .bracketContainerMiddle .game {
+	margin-bottom: 0;
+}
+.game:first-child, .bracketContainerMiddle .game {
+	margin-top: 0;
+}
+.bracketContainerRight .game {
+	justify-content: flex-end;
 }
 .bracketContainerMiddle .conferenceContainer, .bracketContainerMiddle .roundsContainer {
 	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 .bracketContainerMiddle .roundsContainer {
 	align-content: center;

@@ -103,6 +103,7 @@ const shared = {
 
 		getGame: ({conference, round, gameNumber}) => store.getState().tournament.games[conference].rounds[round][gameNumber],
 		getTeam: teamId => store.getState().tournament.teams[teamId],
+		getRoundInfo: round => store.getState().tournament.dates.filter(d => d.round === round),
 	},
 	vars: {
 		// has csrf been fetched?
