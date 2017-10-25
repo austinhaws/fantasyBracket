@@ -51,7 +51,7 @@ body {
 }
 #navigation a.current {
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 17px;
 }
 #navigation a:first-child {
 	margin: 0;
@@ -59,7 +59,6 @@ body {
 #navigation a:hover {
 	color: blue;
 }
-
 #footer {
 	text-align: center;
 	color: #666;

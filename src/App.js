@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, NavLink, Route, Switch} from 'react-router-dom'
 import * as ReactDOM from "react-dom";
 import {connect, Provider} from "react-redux";
 import PropTypes from "prop-types";
@@ -14,11 +14,7 @@ import GameEdit from "./gameEdit/GameEdit";
 
 class MenuItem extends React.Component {
 	render() {
-		return <Route render={({history}) => <a href="#" onClick={e => {
-			e.preventDefault();
-			e.stopPropagation();
-			history.push(this.props.url);
-		}} className={`${this.props.isCurrent ? 'current' : ''} ${this.props.isUser ? 'account' : ''}`}>{this.props.title}</a>}/>;
+		return <NavLink to={this.props.url} exact={this.props.url === '/'} activeClassName="current" className={this.props.isUser ? 'account' : ''}>{this.props.title}</NavLink>;
 	}
 }
 MenuItem.defaultProps = {
@@ -56,7 +52,7 @@ class AppClass extends React.Component {
 				<div id="appBody">
 					<div id="navigation">
 						{this.props.user ? <MenuItem key="account" isUser={true} url="/account" title={this.props.user ? `${this.props.user.firstName} ${this.props.user.lastName}` : ''}/>: false}
-						<MenuItem account="home" url="./" title="Home" isCurrent={true}/>
+						<MenuItem account="home" url="/" title="Home" isCurrent={true}/>
 						<MenuItem key="myBracket" url="/bracket" title="My Bracket"/>
 						<MenuItem key="realBracket" url="/realBracket" title="Real Bracket"/>
 						{admin}

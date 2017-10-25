@@ -1,13 +1,17 @@
 [ ] when saving an edited game, also update the next game with the picked winner
 [ ] on tournament editor, if game clicked but doesn't have both teams, then show alert instead of going to editor
+
+
+
+
+
 [ ] conference titles on tournament page
 
 [ ] reports menu - admin only
 	[ ] real bracket
 	[ ] scores
 	[ ] roll strips - show rank and roll so that rolling can go smoother
-[ ] menu items - bold for current location : probably menu item component and pass path/title to it
-	[ ] red menu item for current bracket if don't yet have one
+[ ] red menu item for current bracket if don't yet have one
 [ ] account page - for email notifications like upcoming dates and round notifications - default all settings to off
 
 [ ] tournament detail page - set dates
