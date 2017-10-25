@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import Conference from "./realBracket/Conference";
+import Conference from "./bracket/Conference";
 import shared from "./Shared";
 
 // !!!!  Be careful that no names match  !!! //

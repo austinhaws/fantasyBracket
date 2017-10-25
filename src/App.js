@@ -8,7 +8,7 @@ import store from './Store';
 import shared from './Shared';
 import Home from './home/Home';
 import Tournament from "./tournament/Tournament";
-import RealBracket from "./realBracket/RealBracket";
+import RealBracket from "./bracket/Bracket";
 import GameEdit from "./gameEdit/GameEdit";
 import moment from "moment";
 

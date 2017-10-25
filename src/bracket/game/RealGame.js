@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import reducers from "../Reducers";
+import reducers from "../../Reducers";
 import {connect} from "react-redux";
 import {Route} from "react-router";
-import shared from "../Shared";
+import shared from "../../Shared";
 
 
-class GameClass extends React.Component {
+class RealGameClass extends React.Component {
 	teamName(team) {
 		return team ? `${team.name} (${team.rank})` : false;
 	}
@@ -35,7 +35,7 @@ class GameClass extends React.Component {
 	}
 }
 
-GameClass.PropTypes = {
+RealGameClass.PropTypes = {
 	// which conference this game is in (Conference.CONFERENCES... constants)
 	conference: PropTypes.string.isRequired,
 	// which round is the game in
@@ -55,13 +55,13 @@ GameClass.PropTypes = {
 	startCellDrag: PropTypes.func.isRequired,
 };
 
-const Game = connect(
+const RealGame = connect(
 	state => state,
 	dispatch => {
 		return {
 			startCellDrag: (conference, round, gameNumber) => dispatch({type: reducers.ACTION_TYPES.BRACKET.START_DRAG, payload: {conference: conference, round: round, gameNumber: gameNumber}}),
 		}
 	},
-)(GameClass);
+)(RealGameClass);
 
-export default Game;
+export default RealGame;

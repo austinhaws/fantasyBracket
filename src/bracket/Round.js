@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Game from "./Game";
+import RealGame from "./game/RealGame";
 
 
 class Round extends React.Component {
 	render() {
 		// show games: number of games based on the round
 		return <div className="roundContainer">
-			{this.props.games.map((g, i) => <Game key={`${this.props.round}-${i}`} conference={this.props.conference} round={this.props.round} game={g} gameNumber={i}/>)}
+			{this.props.games.map((g, i) => <RealGame key={`${this.props.round}-${i}`} conference={this.props.conference} round={this.props.round} game={g} gameNumber={i}/>)}
 		</div>;
 	}
 }

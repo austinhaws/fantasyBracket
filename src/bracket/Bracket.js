@@ -3,10 +3,10 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 import Conference from "./Conference";
-import Game from "./Game";
+import RealGame from "./game/RealGame";
 import shared from "../Shared";
 
-class RealBracketClass extends React.Component {
+class BracketClass extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -46,9 +46,9 @@ class RealBracketClass extends React.Component {
 					<div className="bracketContainerMiddle" key="middle">
 						<div className="conferenceContainer">
 							<div className="roundsContainer">
-								<Game conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={0}/>
-								<Game conference={Conference.CONFERENCES.FINALS} round={2} gameNumber={0}/>
-								<Game conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={1}/>
+								<RealGame conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={0}/>
+								<RealGame conference={Conference.CONFERENCES.FINALS} round={2} gameNumber={0}/>
+								<RealGame conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={1}/>
 							</div>
 						</div>
 					</div>
@@ -62,17 +62,17 @@ class RealBracketClass extends React.Component {
 	}
 }
 
-RealBracketClass.PropTypes = {
+BracketClass.PropTypes = {
 	// the logged in user
 	user: PropTypes.object.isRequired,
 };
 
 // withRouter required so that routing isn't blocked: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
-const RealBracket = withRouter(connect(
+const Bracket = withRouter(connect(
 	state => state,
 	dispatch => {
 		return {}
 	},
-)(RealBracketClass));
+)(BracketClass));
 
-export default RealBracket;
+export default Bracket;

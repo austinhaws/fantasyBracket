@@ -6,7 +6,7 @@ import shared from "../Shared";
 import {Button, InputInformation} from "dts-react-common";
 import reducers from "../Reducers";
 import store from "../Store";
-import Conference from "../realBracket/Conference";
+import Conference from "../bracket/Conference";
 
 class GameEditClass extends React.Component {
 	constructor(props) {
