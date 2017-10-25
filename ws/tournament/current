@@ -1,0 +1,1212 @@
+{
+  "year": "2018",
+  "conferences": {
+	"topLeft": "Sport",
+	"topRight": "Color",
+	"bottomLeft": "Socks",
+	"bottomRight": "Angusisms"
+  },
+  "dates": [
+	{
+	  "name": "Conferences Picked",
+	  "date": "2017-10-16T00:00:00.000Z"
+	},
+	{
+	  "name": "Teams Picked",
+	  "date": "2018-03-08T00:00:00.000Z"
+	},
+	{
+	  "name": "Brackets Due",
+	  "date": "2018-03-20T00:00:00.000Z"
+	},
+	{
+	  "name": "1st Round",
+	  "date": "2018-03-21T00:00:00.000Z",
+	  "round": 2
+	},
+	{
+	  "name": "Sweet 16",
+	  "date": "2018-03-22T00:00:00.000Z",
+	  "round": 3
+	},
+	{
+	  "name": "Elite 8",
+	  "date": "2018-03-23T00:00:00.000Z",
+	  "round": 4
+	},
+	{
+	  "name": "Final Four",
+	  "date": "2018-03-24T00:00:00.000Z",
+	  "round": 5
+	},
+	{
+	  "name": "Championship",
+	  "date": "2018-03-25T00:00:00.000Z",
+	  "round": 6
+	}
+  ],
+  "rolls": {
+	"1": "1d20 + 2d12 + 2d10 + 2d8 + 2d6 + 1d4",
+	"2": "1d20 + 2d12 + 2d10 + 2d8 + 2d6",
+	"3": "1d20 + 1d12 + 2d10 + 2d8 + 2d6 + 1d4",
+	"4": "1d20 + 1d12 + 2d10 + 2d8 + 2d6",
+	"5": "1d20 + 2d10 + 2d8 + 2d6 + 1d4",
+	"6": "1d20 + 2d10 + 2d8 + 2d6",
+	"7": "1d20 + 1d10 + 2d8 + 2d6 + 1d4",
+	"8": "1d20 + 1d10 + 2d8 + 2d6",
+	"9": "1d20 + 2d8 + 2d6 + 1d4",
+	"10": "1d20 + 2d8 + 2d6",
+	"11": "1d20 + 1d8 + 2d6 + 1d4",
+	"12": "1d20 + 1d8 + 2d6",
+	"13": "1d20 + 2d6 + 1d4",
+	"14": "1d20 + 2d6",
+	"15": "1d20 + 1d6 + 1d4",
+	"16": "1d20 + 1d6"
+  },
+  "games": {
+  	"finals": {
+		"rounds": {
+			"1": [
+				{
+					"topTeamId": false,
+					"topTeamScore": false,
+					"topTeamRoller": false,
+					"bottomTeamId": false,
+					"bottomTeamScore": false,
+					"bottomTeamRoller": false,
+					"pointsGained": false,
+					"winningTeamId": false
+				},
+				{
+					"topTeamId": false,
+					"topTeamScore": false,
+					"topTeamRoller": false,
+					"bottomTeamId": false,
+					"bottomTeamScore": false,
+					"bottomTeamRoller": false,
+					"pointsGained": false,
+					"winningTeamId": false
+				}
+			],
+			"2": [
+				{
+					"topTeamId": false,
+					"topTeamScore": false,
+					"topTeamRoller": false,
+					"bottomTeamId": false,
+					"bottomTeamScore": false,
+					"bottomTeamRoller": false,
+					"pointsGained": false,
+					"winningTeamId": false
+				}
+			]
+		}
+  	},
+	"topLeft": {
+	  "rounds": {
+		"1": [
+		  {
+			"teamId": "1"
+		  },
+		  {
+			"teamId": "16"
+		  },
+		  {
+			"teamId": "8"
+		  },
+		  {
+			"teamId": "9"
+		  },
+		  {
+			"teamId": "5"
+		  },
+		  {
+			"teamId": "12"
+		  },
+		  {
+			"teamId": "4"
+		  },
+		  {
+			"teamId": "13"
+		  },
+		  {
+			"teamId": "6"
+		  },
+		  {
+			"teamId": "11"
+		  },
+		  {
+			"teamId": "3"
+		  },
+		  {
+			"teamId": "14"
+		  },
+		  {
+			"teamId": "7"
+		  },
+		  {
+			"teamId": "10"
+		  },
+		  {
+			"teamId": "2"
+		  },
+		  {
+			"teamId": "15"
+		  }
+		],
+		"2": [
+		  {
+			"topTeamId": 1,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 16,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 8,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 9,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 5,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 12,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 4,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 13,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 6,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 11,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 3,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 14,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 7,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 10,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 2,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 15,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"3": [
+		  {
+			"topTeamId": false,
+			".": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"4": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"5": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		]
+	  }
+	},
+	"bottomLeft": {
+	  "rounds": {
+		"1": [
+		  {
+			"teamId": "17"
+		  },
+		  {
+			"teamId": "32"
+		  },
+		  {
+			"teamId": "24"
+		  },
+		  {
+			"teamId": "25"
+		  },
+		  {
+			"teamId": "21"
+		  },
+		  {
+			"teamId": "28"
+		  },
+		  {
+			"teamId": "20"
+		  },
+		  {
+			"teamId": "29"
+		  },
+		  {
+			"teamId": "22"
+		  },
+		  {
+			"teamId": "27"
+		  },
+		  {
+			"teamId": "19"
+		  },
+		  {
+			"teamId": "30"
+		  },
+		  {
+			"teamId": "23"
+		  },
+		  {
+			"teamId": "26"
+		  },
+		  {
+			"teamId": "18"
+		  },
+		  {
+			"teamId": "31"
+		  }
+		],
+		"2": [
+		  {
+			"topTeamId": 17,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 32,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 24,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 25,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 21,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 28,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 20,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 29,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 22,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 27,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 19,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 30,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 23,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 26,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 18,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 31,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"3": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"4": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"5": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		]
+	  }
+	},
+	"topRight": {
+	  "rounds": {
+		"1": [
+		  {
+			"teamId": "33"
+		  },
+		  {
+			"teamId": "48"
+		  },
+		  {
+			"teamId": "40"
+		  },
+		  {
+			"teamId": "41"
+		  },
+		  {
+			"teamId": "37"
+		  },
+		  {
+			"teamId": "44"
+		  },
+		  {
+			"teamId": "36"
+		  },
+		  {
+			"teamId": "45"
+		  },
+		  {
+			"teamId": "38"
+		  },
+		  {
+			"teamId": "43"
+		  },
+		  {
+			"teamId": "35"
+		  },
+		  {
+			"teamId": "46"
+		  },
+		  {
+			"teamId": "39"
+		  },
+		  {
+			"teamId": "42"
+		  },
+		  {
+			"teamId": "34"
+		  },
+		  {
+			"teamId": "47"
+		  }
+		],
+		"2": [
+		  {
+			"topTeamId": 33,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 48,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 40,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 41,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 37,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 44,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 36,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 45,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 38,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 43,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 35,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 46,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 39,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 42,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 34,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 47,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"3": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"4": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"5": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		]
+	  }
+	},
+	"bottomRight": {
+	  "rounds": {
+		"1": [
+		  {
+			"teamId": "49"
+		  },
+		  {
+			"teamId": "64"
+		  },
+		  {
+			"teamId": "56"
+		  },
+		  {
+			"teamId": "57"
+		  },
+		  {
+			"teamId": "53"
+		  },
+		  {
+			"teamId": "60"
+		  },
+		  {
+			"teamId": "52"
+		  },
+		  {
+			"teamId": "61"
+		  },
+		  {
+			"teamId": "54"
+		  },
+		  {
+			"teamId": "59"
+		  },
+		  {
+			"teamId": "51"
+		  },
+		  {
+			"teamId": "62"
+		  },
+		  {
+			"teamId": "55"
+		  },
+		  {
+			"teamId": "58"
+		  },
+		  {
+			"teamId": "50"
+		  },
+		  {
+			"teamId": "63"
+		  }
+		],
+		"2": [
+		  {
+			"topTeamId": 49,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 64,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 56,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 57,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 53,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 60,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 52,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 61,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 54,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 59,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 51,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 62,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 55,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 58,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": 50,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": 63,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"3": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"4": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"5": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		]
+	  }
+	}
+  },
+  "teams": {
+	"1": {
+	  "rank": 1,
+	  "name": "Hockey"
+	},
+	"2": {
+	  "rank": 2,
+	  "name": "Football"
+	},
+	"3": {
+	  "rank": 3,
+	  "name": "Baseball"
+	},
+	"4": {
+	  "rank": 4,
+	  "name": "Basketball"
+	},
+	"5": {
+	  "rank": 5,
+	  "name": "Golf"
+	},
+	"6": {
+	  "rank": 6,
+	  "name": "Tennis"
+	},
+	"7": {
+	  "rank": 7,
+	  "name": "Soccer"
+	},
+	"8": {
+	  "rank": 8,
+	  "name": "Foosball"
+	},
+	"9": {
+	  "rank": 9,
+	  "name": "Ping Pong"
+	},
+	"10": {
+	  "rank": 10,
+	  "name": "Pickle Ball"
+	},
+	"11": {
+	  "rank": 11,
+	  "name": "Squash"
+	},
+	"12": {
+	  "rank": 12,
+	  "name": "Racquetball"
+	},
+	"13": {
+	  "rank": 13,
+	  "name": "Bowling"
+	},
+	"14": {
+	  "rank": 14,
+	  "name": "Mini Golf"
+	},
+	"15": {
+	  "rank": 15,
+	  "name": "Fencing"
+	},
+	"16": {
+	  "rank": 16,
+	  "name": "Wrestling"
+	},
+	"17": {
+	  "rank": 1,
+	  "name": "Red"
+	},
+	"18": {
+	  "rank": 2,
+	  "name": "Blue"
+	},
+	"19": {
+	  "rank": 3,
+	  "name": "Green"
+	},
+	"20": {
+	  "rank": 4,
+	  "name": "Yellow"
+	},
+	"21": {
+	  "rank": 5,
+	  "name": "Forest"
+	},
+	"22": {
+	  "rank": 6,
+	  "name": "Orange"
+	},
+	"23": {
+	  "rank": 7,
+	  "name": "White"
+	},
+	"24": {
+	  "rank": 8,
+	  "name": "Black"
+	},
+	"25": {
+	  "rank": 9,
+	  "name": "Gray"
+	},
+	"26": {
+	  "rank": 10,
+	  "name": "Puke"
+	},
+	"27": {
+	  "rank": 11,
+	  "name": "Light Blue"
+	},
+	"28": {
+	  "rank": 12,
+	  "name": "Light Green"
+	},
+	"29": {
+	  "rank": 13,
+	  "name": "Beige"
+	},
+	"30": {
+	  "rank": 14,
+	  "name": "Skin-tone"
+	},
+	"31": {
+	  "rank": 15,
+	  "name": "Maroon"
+	},
+	"32": {
+	  "rank": 16,
+	  "name": "Blond"
+	},
+	"33": {
+	  "rank": 1,
+	  "name": "Tall"
+	},
+	"34": {
+	  "rank": 2,
+	  "name": "Short"
+	},
+	"35": {
+	  "rank": 3,
+	  "name": "Normal"
+	},
+	"36": {
+	  "rank": 4,
+	  "name": "White"
+	},
+	"37": {
+	  "rank": 5,
+	  "name": "Black"
+	},
+	"38": {
+	  "rank": 6,
+	  "name": "Argyle"
+	},
+	"39": {
+	  "rank": 7,
+	  "name": "Wool"
+	},
+	"40": {
+	  "rank": 8,
+	  "name": "Ankle"
+	},
+	"41": {
+	  "rank": 9,
+	  "name": "Knee"
+	},
+	"42": {
+	  "rank": 10,
+	  "name": "Fake"
+	},
+	"43": {
+	  "rank": 11,
+	  "name": "Thin"
+	},
+	"44": {
+	  "rank": 12,
+	  "name": "Thick"
+	},
+	"45": {
+	  "rank": 13,
+	  "name": "Hiking"
+	},
+	"46": {
+	  "rank": 14,
+	  "name": "Swimming"
+	},
+	"47": {
+	  "rank": 15,
+	  "name": "Holey"
+	},
+	"48": {
+	  "rank": 16,
+	  "name": "Christmas"
+	},
+	"49": {
+	  "rank": 1,
+	  "name": "Oh Dear"
+	},
+	"50": {
+	  "rank": 2,
+	  "name": "B Work"
+	},
+	"51": {
+	  "rank": 3,
+	  "name": "Show Up"
+	},
+	"52": {
+	  "rank": 4,
+	  "name": "No $"
+	},
+	"53": {
+	  "rank": 5,
+	  "name": "Divas"
+	},
+	"54": {
+	  "rank": 6,
+	  "name": "Team"
+	},
+	"55": {
+	  "rank": 7,
+	  "name": "I do not care"
+	},
+	"56": {
+	  "rank": 8,
+	  "name": "Not my problem"
+	},
+	"57": {
+	  "rank": 9,
+	  "name": "Anus"
+	},
+	"58": {
+	  "rank": 10,
+	  "name": "Always be Billing"
+	},
+	"59": {
+	  "rank": 11,
+	  "name": "Minimum Viable Product"
+	},
+	"60": {
+	  "rank": 12,
+	  "name": "Show me"
+	},
+	"61": {
+	  "rank": 13,
+	  "name": "Telecommute"
+	},
+	"62": {
+	  "rank": 14,
+	  "name": "Rock Climbing"
+	},
+	"63": {
+	  "rank": 15,
+	  "name": "Drink too much"
+	},
+	"64": {
+	  "rank": 16,
+	  "name": "Swear too much"
+	}
+  }
+}
