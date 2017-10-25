@@ -1,11 +1,5 @@
 {
   "year": "2018",
-  "conferences": {
-	"topLeft": "Sport",
-	"topRight": "Color",
-	"bottomLeft": "Socks",
-	"bottomRight": "Angusisms"
-  },
   "dates": [
 	{
 	  "name": "Conferences Picked",
@@ -45,64 +39,9 @@
 	  "round": 6
 	}
   ],
-  "rolls": {
-	"1": "1d20 + 2d12 + 2d10 + 2d8 + 2d6 + 1d4",
-	"2": "1d20 + 2d12 + 2d10 + 2d8 + 2d6",
-	"3": "1d20 + 1d12 + 2d10 + 2d8 + 2d6 + 1d4",
-	"4": "1d20 + 1d12 + 2d10 + 2d8 + 2d6",
-	"5": "1d20 + 2d10 + 2d8 + 2d6 + 1d4",
-	"6": "1d20 + 2d10 + 2d8 + 2d6",
-	"7": "1d20 + 1d10 + 2d8 + 2d6 + 1d4",
-	"8": "1d20 + 1d10 + 2d8 + 2d6",
-	"9": "1d20 + 2d8 + 2d6 + 1d4",
-	"10": "1d20 + 2d8 + 2d6",
-	"11": "1d20 + 1d8 + 2d6 + 1d4",
-	"12": "1d20 + 1d8 + 2d6",
-	"13": "1d20 + 2d6 + 1d4",
-	"14": "1d20 + 2d6",
-	"15": "1d20 + 1d6 + 1d4",
-	"16": "1d20 + 1d6"
-  },
-  "games": {
-  	"finals": {
-		"rounds": {
-			"1": [
-				{
-					"topTeamId": false,
-					"topTeamScore": false,
-					"topTeamRoller": false,
-					"bottomTeamId": false,
-					"bottomTeamScore": false,
-					"bottomTeamRoller": false,
-					"pointsGained": false,
-					"winningTeamId": false
-				},
-				{
-					"topTeamId": false,
-					"topTeamScore": false,
-					"topTeamRoller": false,
-					"bottomTeamId": false,
-					"bottomTeamScore": false,
-					"bottomTeamRoller": false,
-					"pointsGained": false,
-					"winningTeamId": false
-				}
-			],
-			"2": [
-				{
-					"topTeamId": false,
-					"topTeamScore": false,
-					"topTeamRoller": false,
-					"bottomTeamId": false,
-					"bottomTeamScore": false,
-					"bottomTeamRoller": false,
-					"pointsGained": false,
-					"winningTeamId": false
-				}
-			]
-		}
-  	},
+  "conferences": {
 	"topLeft": {
+	  "name": "Sports",
 	  "rounds": {
 		"1": [
 		  {
@@ -315,6 +254,7 @@
 	  }
 	},
 	"bottomLeft": {
+	  "name": "Socks",
 	  "rounds": {
 		"1": [
 		  {
@@ -527,6 +467,7 @@
 	  }
 	},
 	"topRight": {
+	  "name": "Colors",
 	  "rounds": {
 		"1": [
 		  {
@@ -739,6 +680,7 @@
 	  }
 	},
 	"bottomRight": {
+	  "name": "Angusisms",
 	  "rounds": {
 		"1": [
 		  {
@@ -949,7 +891,64 @@
 		  }
 		]
 	  }
+	},
+	"finals": {
+	  "name": "Finals",
+	  "rounds": {
+		"1": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  },
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		],
+		"2": [
+		  {
+			"topTeamId": false,
+			"topTeamScore": false,
+			"topTeamRoller": false,
+			"bottomTeamId": false,
+			"bottomTeamScore": false,
+			"bottomTeamRoller": false,
+			"pointsGained": false,
+			"winningTeamId": false
+		  }
+		]
+	  }
 	}
+  },
+  "rolls": {
+	"1": "1d20 + 2d12 + 2d10 + 2d8 + 2d6 + 1d4",
+	"2": "1d20 + 2d12 + 2d10 + 2d8 + 2d6",
+	"3": "1d20 + 1d12 + 2d10 + 2d8 + 2d6 + 1d4",
+	"4": "1d20 + 1d12 + 2d10 + 2d8 + 2d6",
+	"5": "1d20 + 2d10 + 2d8 + 2d6 + 1d4",
+	"6": "1d20 + 2d10 + 2d8 + 2d6",
+	"7": "1d20 + 1d10 + 2d8 + 2d6 + 1d4",
+	"8": "1d20 + 1d10 + 2d8 + 2d6",
+	"9": "1d20 + 2d8 + 2d6 + 1d4",
+	"10": "1d20 + 2d8 + 2d6",
+	"11": "1d20 + 1d8 + 2d6 + 1d4",
+	"12": "1d20 + 1d8 + 2d6",
+	"13": "1d20 + 2d6 + 1d4",
+	"14": "1d20 + 2d6",
+	"15": "1d20 + 1d6 + 1d4",
+	"16": "1d20 + 1d6"
   },
   "teams": {
 	"1": {

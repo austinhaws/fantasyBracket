@@ -22,16 +22,16 @@ class RealBracketClass extends React.Component {
 
 		return (
 			<div className="bracketTopContainer">
-				<div className="roundTitles">
+				<div className="roundTitles" key="titles">
 					{
 						[1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
-							.map(r => {
+							.map((r, i) => {
 								const round = shared.funcs.getRoundInfo(r);
 								const roundName = round.length ? round[0].name : '';
 								const roundDate = round.length ? round[0].date.split('T')[0] : String.fromCharCode(0x200b);
 
 								return (
-									<div className="roundTitle">
+									<div className="roundTitle" key={`roundTitle${roundName}${i}`}>
 										<div key="round">{roundName}</div>
 										<div key="date">{roundDate}</div>
 									</div>

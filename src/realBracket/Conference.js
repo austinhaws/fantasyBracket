@@ -9,7 +9,7 @@ class ConferenceClass extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.conference = store.getState().tournament.games[this.props.conference];
+		this.conference = store.getState().tournament.conferences[this.props.conference];
 	}
 
 	render() {

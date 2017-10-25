@@ -179,7 +179,7 @@ reducers[reducers.ACTION_TYPES.GAME_EDIT.SET_GAME_EDIT] = (state, action) => {
 	result.gameEdit.conference = action.payload.conference;
 	result.gameEdit.round = action.payload.round;
 	result.gameEdit.gameNumber = action.payload.gameNumber;
-	result.gameEdit.game = Object.assign({}, result.tournament.games[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber]);
+	result.gameEdit.game = Object.assign({}, result.tournament.conferences[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber]);
 	return result;
 };
 
@@ -187,7 +187,7 @@ reducers[reducers.ACTION_TYPES.GAME_EDIT.SET_GAME_EDIT] = (state, action) => {
 // payload: {conference, round, gameNumber, game}
 reducers[reducers.ACTION_TYPES.TOURNAMENT.UPDATE_GAME] = (state, action) => {
 	const result = copyState(state);
-	result.tournament.games[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber] = action.payload.game;
+	result.tournament.conferences[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber] = action.payload.game;
 	return result;
 };
 
