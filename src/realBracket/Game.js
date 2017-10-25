@@ -21,7 +21,11 @@ class GameClass extends React.Component {
 			<Route render={({history}) => (
 				<div className="game" onClick={() => {
 					if (this.props.round > 1) {
-						history.push(`realBracket/game/${this.props.conference}/${this.props.round}/${this.props.gameNumber}`);
+						if (teamTop.name && teamBottom.name) {
+							history.push(`realBracket/game/${this.props.conference}/${this.props.round}/${this.props.gameNumber}`);
+						} else {
+							alert('Can\'t play a game until there are two teams. Get both teams to be set for the game and try again.');
+						}
 					}
 				}}>
 					{[team, teamTop, teamBottom].filter(t => t.name).map((t, i) => <div key={i} className={(team && game.winningTeamId && (game.winningTeamId !== t.teamId)) ? 'loser' : false}>{this.teamName(t)}</div>)}

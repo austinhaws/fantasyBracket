@@ -1,7 +1,5 @@
 == tournament edit ==
-[ ] conference titles on tournament page
-[ ] when saving an edited game, also update the next game with the picked winner
-[ ] on tournament editor, if game clicked but doesn't have both teams, then show alert instead of going to editor
+[ ] WS: when saving an edited game, also update the next game with the picked winner - webservice returnsupdated tournament
 
 
 == my bracket ==
@@ -12,7 +10,7 @@
 	[ ] drag from round 2 (shows 3, 4, 5, 6, 7, 8 rounds as droppable) drop in round 6 and auto fills rounds 3, 4, 5
 
 
-
+== build webservice ==
 
 == Other ==
 [ ] reports menu - admin only
