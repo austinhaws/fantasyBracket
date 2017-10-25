@@ -5,22 +5,47 @@ import PropTypes from "prop-types";
 import shared from "../Shared";
 import {Button, InputInformation} from "dts-react-common";
 import reducers from "../Reducers";
+import store from "../Store";
 
 class GameEditClass extends React.Component {
 	constructor(props) {
 		super(props);
 
 		if (!this.props.tournament) {
-			shared.funcs.getCurrentTournament();
+			shared.funcs.getCurrentTournament(this.setupGameEdit.bind(this));
+		} else {
+			this.setupGameEdit();
 		}
+	}
+
+	setupGameEdit() {
+		store.dispatch({type: reducers.ACTION_TYPES.GAME_EDIT.SET_GAME_EDIT, payload: {conference: this.props.conference, round: this.props.round, gameNumber: this.props.gameNumber}});
 	}
 
 	editField(field, value) {
 		this.props.changeGameField(this.props.conference, this.props.round, this.props.gameNumber, field, value);
 	}
 
+	saveGame() {
+		// save to server
+		shared.funcs.ajax('POST', 'ws/game/save', {
+			conference: this.props.conference,
+			round: this.props.round,
+			gameNumber: this.props.gameNumber,
+			gameEdit: this.props.gameEdit,
+		});
+
+		// update tournament store game
+		store.dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.UPDATE_GAME, payload: {
+			conference: this.props.conference,
+			round: this.props.round,
+			gameNumber: this.props.gameNumber,
+			game: this.props.gameEdit.game,
+		}});
+	}
+
 	render() {
-		if (!this.props.tournament) {
+		if (!this.props.gameEdit.game) {
 			return false;
 		}
 
@@ -29,7 +54,7 @@ class GameEditClass extends React.Component {
 			round: this.props.round,
 			gameNumber: this.props.gameNumber,
 		};
-		const game = shared.funcs.getGame(gameInfo);
+		const game = this.props.gameEdit.game;
 
 		const team1 = shared.funcs.getTeam(game.topTeamId);
 		const team2 = shared.funcs.getTeam(game.bottomTeamId);
@@ -90,12 +115,18 @@ class GameEditClass extends React.Component {
 					</div>
 				</div>
 
+				<div className="inputs">
+					<div className="inputGroup">
+						<div className="label">Points Gained</div>
+						<div className="input"><input type="text" className="dataFont" value={game.pointsGained ? game.pointsGained : ''} onChange={e => this.editField('pointsGained', e.target.value)}/></div>
+					</div>
+				</div>
 
 				<Route render={({history}) => (
 					<div className="buttonContainer">
 						<Button key="previous" label="Previous" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL}/>
 						<Button key="cancel" label="Cancel" clickedCallback={history.goBack} color={Button.BACKGROUND_COLOR.BLUE_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
-						<Button key="save" label="Save" clickedCallback={() => this.saveTournament(history)} color={Button.BACKGROUND_COLOR.GREEN_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
+						<Button key="save" label="Save" clickedCallback={() => this.saveGame(history)} color={Button.BACKGROUND_COLOR.GREEN_LIGHTTONE} size={InputInformation.SIZE_SMALL}/>
 						<Button key="next" label="Next" clickedCallback={() => history.push('./')} color={Button.BACKGROUND_COLOR.MEDIUM_GRAY} size={InputInformation.SIZE_SMALL}/>
 					</div>
 				)}/>
@@ -111,6 +142,10 @@ GameEditClass.PropTypes = {
 	round: PropTypes.number.isRequired,
 	// which game in that round
 	gameNumber: PropTypes.number.isRequired,
+
+	// == redux store == //
+	// the game editor information: {game, conference, round, gameNumber}
+	gameEdit: PropTypes.object.isRequired,
 };
 
 // withRouter required so that routing isn't blocked: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md

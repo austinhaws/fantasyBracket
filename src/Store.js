@@ -49,6 +49,15 @@ const store = createStore((state, action) => {
 			draggedGame: undefined,
 			droppableGames: undefined,
 		},
+		gameEdit: {
+			// the game being edited
+			game: undefined,
+
+			// the location of this game
+			conference: undefined,
+			round: undefined,
+			gameNumber: undefined,
+		}
 	}
 
 	// for chrome redux plugin

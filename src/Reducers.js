@@ -18,17 +18,25 @@ let reducers = {
 
 		SET_TOURNAMENT: 'SET_TOURNAMENT',
 
+		// tournament edit page
 		TOURNAMENT: {
 			SET_DATE_FIELD: 'SET_DATE_FIELD',
 			SET_ROLL_FIELD: 'SET_ROLL_FIELD',
 			SET_EDITING_TOURNAMENT: 'SET_EDITING_TOURNAMENT',
+			UPDATE_GAME: 'UPDATE_GAME',
 		},
+
+		// bracket edit page
 		BRACKET: {
 			// clicked on a game and started dragging
 			START_DRAG: 'START_DRAG',
 		},
+
+		// game edit page
 		GAME_EDIT: {
 			UPDATE_GAME_FIELD: 'UPDATE_GAME_FIELD',
+			// set which game is being edited
+			SET_GAME_EDIT: 'SET_GAME_EDIT',
 		},
 	}
 };
@@ -56,18 +64,24 @@ reducers[reducers.ACTION_TYPES.SET_AJAXING] = (state, action) => {
 	return result;
 };
 
+// set csrf token/name
+// payload: {name, token}
 reducers[reducers.ACTION_TYPES.SET_CSRF] = (state, action) => {
 	const result = copyState(state);
 	result.csrf = action.payload;
 	return result;
 };
 
+// set the current user using the app
+// payload: the user
 reducers[reducers.ACTION_TYPES.SET_USER] = (state, action) => {
 	const result = copyState(state);
 	result.user = action.payload;
 	return result;
 };
 
+// set the current tournament being used; also update some cached things like upcoming dates and next date
+// payload: the tournament
 reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 	const result = copyState(state);
 	result.tournament = action.payload;
@@ -88,6 +102,8 @@ reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 	return result;
 };
 
+// set a date field on the tournament when editing a tournament
+// payload: {index, value}
 reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD] = (state, action) => {
 	const result = copyState(state);
 	// assumes editing tournament is already loaded
@@ -98,6 +114,8 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_DATE_FIELD] = (state, action) => {
 	return result;
 };
 
+// set a roll field on the tournament when editing a tournament
+// payload: {index, value}
 reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_ROLL_FIELD] = (state, action) => {
 	const result = copyState(state);
 	// assumes editing tournament is already loaded
@@ -106,6 +124,8 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_ROLL_FIELD] = (state, action) => {
 	return result;
 };
 
+// start editing the tournament by making a copy of it to edit
+// payload: the tournament to edit
 reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT] = (state, action) => {
 	const result = copyState(state);
 	result.tournamentEdit.tournament = Object.assign({}, action.payload);
@@ -116,6 +136,8 @@ reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT] = (state, acti
 	return result;
 };
 
+// start dragging a bracket choice (incomplete)
+// payload: the game being dragged
 reducers[reducers.ACTION_TYPES.BRACKET.START_DRAG] = (state, action) => {
 	const result = copyState(state);
 	// quick and dirty full object deep copy
@@ -142,9 +164,30 @@ reducers[reducers.ACTION_TYPES.BRACKET.START_DRAG] = (state, action) => {
 	return result;
 };
 
+// update a field when editing a game
+// payload: {field, value}
 reducers[reducers.ACTION_TYPES.GAME_EDIT.UPDATE_GAME_FIELD] = (state, action) => {
 	const result = copyState(state);
-	result.tournament.games[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber][action.payload.field] = action.payload.value;
+	result.gameEdit.game[action.payload.field] = action.payload.value;
+	return result;
+};
+
+// set the game to edit as a copy from the main tournament object
+// payload: {conference, round, gameNumber}
+reducers[reducers.ACTION_TYPES.GAME_EDIT.SET_GAME_EDIT] = (state, action) => {
+	const result = copyState(state);
+	result.gameEdit.conference = action.payload.conference;
+	result.gameEdit.round = action.payload.round;
+	result.gameEdit.gameNumber = action.payload.gameNumber;
+	result.gameEdit.game = Object.assign({}, result.tournament.games[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber]);
+	return result;
+};
+
+// update the main tournament's information about a single game (after the game has been saved when editing)
+// payload: {conference, round, gameNumber, game}
+reducers[reducers.ACTION_TYPES.TOURNAMENT.UPDATE_GAME] = (state, action) => {
+	const result = copyState(state);
+	result.tournament.games[action.payload.conference].rounds[action.payload.round][action.payload.gameNumber] = action.payload.game;
 	return result;
 };
 
