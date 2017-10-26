@@ -17,7 +17,7 @@ class ConferenceClass extends React.Component {
 			<div className="conferenceContainer">
 				<div className="conferenceTitle">{this.conference.name}</div>
 				<div className="roundsContainer">
-					{Object.keys(this.conference.rounds).map(i => <Round conference={this.props.conference} round={parseInt(i, 10)} key={`round-${i}`} games={this.conference.rounds[i]}/>)}
+					{Object.keys(this.conference.rounds).map(i => <Round realBracket={this.props.realBracket} conference={this.props.conference} round={parseInt(i, 10)} key={`round-${i}`} games={this.conference.rounds[i]}/>)}
 				</div>
 			</div>
 		);
@@ -25,6 +25,9 @@ class ConferenceClass extends React.Component {
 }
 
 ConferenceClass.PropTypes = {
+	// === PROPS === //
+	// true if this the real bracket to edit for played games, false if someone is editing their own bracket
+	realBracket: PropTypes.bool.isRequired,
 	// which conference is this? use Conference.CONFERENCES... constants
 	conference: PropTypes.string.isRequired,
 };

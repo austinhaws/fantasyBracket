@@ -40,8 +40,8 @@ class BracketClass extends React.Component {
 				</div>
 				<div className="bracketContainer">
 					<div className="bracketContainerLeft" key="left">
-						<Conference conference={Conference.CONFERENCES.TOP_LEFT}/>
-						<Conference conference={Conference.CONFERENCES.BOTTOM_LEFT}/>
+						<Conference conference={Conference.CONFERENCES.TOP_LEFT} realBracket={this.props.realBracket}/>
+						<Conference conference={Conference.CONFERENCES.BOTTOM_LEFT} realBracket={this.props.realBracket}/>
 					</div>
 					<div className="bracketContainerMiddle" key="middle">
 						<div className="conferenceContainer">
@@ -53,8 +53,8 @@ class BracketClass extends React.Component {
 						</div>
 					</div>
 					<div className="bracketContainerRight" key="right">
-						<Conference conference={Conference.CONFERENCES.TOP_RIGHT}/>
-						<Conference conference={Conference.CONFERENCES.BOTTOM_RIGHT}/>
+						<Conference conference={Conference.CONFERENCES.TOP_RIGHT} realBracket={this.props.realBracket}/>
+						<Conference conference={Conference.CONFERENCES.BOTTOM_RIGHT} realBracket={this.props.realBracket}/>
 					</div>
 				</div>
 			</div>
@@ -63,6 +63,11 @@ class BracketClass extends React.Component {
 }
 
 BracketClass.PropTypes = {
+	// == Props == //
+	// true if this the real bracket to edit for played games, false if someone is editing their own bracket
+	realBracket: PropTypes.bool.isRequired,
+
+	// == STORE == //
 	// the logged in user
 	user: PropTypes.object.isRequired,
 };

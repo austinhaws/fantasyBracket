@@ -432,6 +432,12 @@ body {
 .game .loser {
 	text-decoration: line-through;
 }
+.game {
+	user-select: none;
+}
+.dragTeamsContainer div:nth-child(2) {
+	margin-top: 7px;
+}
 .bracketContainerMiddle .conferenceContainer, .bracketContainerMiddle .roundsContainer {
 	height: 100%;
 	display: flex;

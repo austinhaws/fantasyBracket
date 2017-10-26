@@ -8,7 +8,7 @@ import store from './Store';
 import shared from './Shared';
 import Home from './home/Home';
 import Tournament from "./tournament/Tournament";
-import RealBracket from "./bracket/Bracket";
+import Bracket from "./bracket/Bracket";
 import GameEdit from "./gameEdit/GameEdit";
 import moment from "moment";
 
@@ -61,16 +61,14 @@ class AppClass extends React.Component {
 					</div>
 					<div id="content">
 						<Switch>
-							{/*<Route path='/html/deploy/:deployPk' render={props => <DeployEditor key={props.match.params.deployPk}/>}/>*/}
-							{/*<Route path='/html/history' component={History}/>*/}
-							{/*<Route path='/html/apps/:applicationInfoPk' render={props => <AppEditor key={props.match.params.applicationInfoPk}/>}/>*/}
 							<Route path='/realBracket/game/:conference/:round/:gameNumber' render={props => <GameEdit
 								key={props.match.params.conference + props.match.params.round + props.match.params.gameNumber}
 								conference={props.match.params.conference}
 								round={props.match.params.round}
 								gameNumber={props.match.params.gameNumber}
 							/>}/>
-							<Route path='/realBracket' render={props => <RealBracket/>}/>
+							<Route path='/bracket' render={props => <Bracket realBracket={false}/>}/>
+							<Route path='/realBracket' render={props => <Bracket realBracket={true}/>}/>
 							<Route path='/tournament' component={Tournament}/>
 							<Route component={Home}/>
 						</Switch>
