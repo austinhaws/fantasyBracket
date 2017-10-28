@@ -11,7 +11,7 @@ class RealGameClass extends React.Component {
 		return team ? `${team.name} (${team.rank})` : false;
 	}
 	render() {
-		const game = shared.funcs.getGame(this.props);
+		const game = this.props.game;
 
 		const team = shared.funcs.getTeam(game.teamId);
 		const teamTop = shared.funcs.getTeam(game.topTeamId);

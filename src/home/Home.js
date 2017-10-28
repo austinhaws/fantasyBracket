@@ -6,13 +6,6 @@ import shared from "../Shared";
 
 // ==== setup react container for the report ==== //
 class HomeClass extends React.Component {
-	constructor(props) {
-		super(props);
-		if (!this.props.tournament) {
-			shared.funcs.getCurrentTournament();
-		}
-	}
-
 	render() {
 		return (
 			<div id="dateContainer">

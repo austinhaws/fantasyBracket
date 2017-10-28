@@ -1,0 +1,578 @@
+{
+  "topLeft": {
+	"name": "Sports",
+	"rounds": {
+	  "1": [
+		{
+		  "teamId": "1"
+		},
+		{
+		  "teamId": "16"
+		},
+		{
+		  "teamId": "8"
+		},
+		{
+		  "teamId": "9"
+		},
+		{
+		  "teamId": "5"
+		},
+		{
+		  "teamId": "12"
+		},
+		{
+		  "teamId": "4"
+		},
+		{
+		  "teamId": "13"
+		},
+		{
+		  "teamId": "6"
+		},
+		{
+		  "teamId": "11"
+		},
+		{
+		  "teamId": "3"
+		},
+		{
+		  "teamId": "14"
+		},
+		{
+		  "teamId": "7"
+		},
+		{
+		  "teamId": "10"
+		},
+		{
+		  "teamId": "2"
+		},
+		{
+		  "teamId": "15"
+		}
+	  ],
+	  "2": [
+		{
+		  "topTeamId": 1,
+		  "bottomTeamId": 16,
+		  "winningTeamId": 1
+		},
+		{
+		  "topTeamId": 8,
+		  "bottomTeamId": 9,
+		  "winningTeamId": 9
+		},
+		{
+		  "topTeamId": 5,
+		  "bottomTeamId": 12,
+		  "winningTeamId": 5
+		},
+		{
+		  "topTeamId": 4,
+		  "bottomTeamId": 13,
+		  "winningTeamId": 4
+		},
+		{
+		  "topTeamId": 6,
+		  "bottomTeamId": 11,
+		  "winningTeamId": 6
+		},
+		{
+		  "topTeamId": 3,
+		  "bottomTeamId": 14,
+		  "winningTeamId": 14
+		},
+		{
+		  "topTeamId": 7,
+		  "bottomTeamId": 10,
+		  "winningTeamId": 7
+		},
+		{
+		  "topTeamId": 2,
+		  "bottomTeamId": 15,
+		  "winningTeamId": 2
+		}
+	  ],
+	  "3": [
+		{
+		  "topTeamId": 1,
+		  "bottomTeamId": 8,
+		  "winningTeamId": 8
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "4": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "5": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ]
+	}
+  },
+  "bottomLeft": {
+	"name": "Colors",
+	"rounds": {
+	  "1": [
+		{
+		  "teamId": "17"
+		},
+		{
+		  "teamId": "32"
+		},
+		{
+		  "teamId": "24"
+		},
+		{
+		  "teamId": "25"
+		},
+		{
+		  "teamId": "21"
+		},
+		{
+		  "teamId": "28"
+		},
+		{
+		  "teamId": "20"
+		},
+		{
+		  "teamId": "29"
+		},
+		{
+		  "teamId": "22"
+		},
+		{
+		  "teamId": "27"
+		},
+		{
+		  "teamId": "19"
+		},
+		{
+		  "teamId": "30"
+		},
+		{
+		  "teamId": "23"
+		},
+		{
+		  "teamId": "26"
+		},
+		{
+		  "teamId": "18"
+		},
+		{
+		  "teamId": "31"
+		}
+	  ],
+	  "2": [
+		{
+		  "topTeamId": 17,
+		  "bottomTeamId": 32,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 24,
+		  "bottomTeamId": 25,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 21,
+		  "bottomTeamId": 28,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 20,
+		  "bottomTeamId": 29,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 22,
+		  "bottomTeamId": 27,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 19,
+		  "bottomTeamId": 30,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 23,
+		  "bottomTeamId": 26,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 18,
+		  "bottomTeamId": 31,
+		  "winningTeamId": false
+		}
+	  ],
+	  "3": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "4": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "5": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ]
+	}
+  },
+  "topRight": {
+	"name": "Socks",
+	"rounds": {
+	  "1": [
+		{
+		  "teamId": "33"
+		},
+		{
+		  "teamId": "48"
+		},
+		{
+		  "teamId": "40"
+		},
+		{
+		  "teamId": "41"
+		},
+		{
+		  "teamId": "37"
+		},
+		{
+		  "teamId": "44"
+		},
+		{
+		  "teamId": "36"
+		},
+		{
+		  "teamId": "45"
+		},
+		{
+		  "teamId": "38"
+		},
+		{
+		  "teamId": "43"
+		},
+		{
+		  "teamId": "35"
+		},
+		{
+		  "teamId": "46"
+		},
+		{
+		  "teamId": "39"
+		},
+		{
+		  "teamId": "42"
+		},
+		{
+		  "teamId": "34"
+		},
+		{
+		  "teamId": "47"
+		}
+	  ],
+	  "2": [
+		{
+		  "topTeamId": 33,
+		  "bottomTeamId": 48,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 40,
+		  "bottomTeamId": 41,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 37,
+		  "bottomTeamId": 44,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 36,
+		  "bottomTeamId": 45,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 38,
+		  "bottomTeamId": 43,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 35,
+		  "bottomTeamId": 46,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 39,
+		  "bottomTeamId": 42,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 34,
+		  "bottomTeamId": 47,
+		  "winningTeamId": false
+		}
+	  ],
+	  "3": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "4": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "5": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ]
+	}
+  },
+  "bottomRight": {
+	"name": "Angusisms",
+	"rounds": {
+	  "1": [
+		{
+		  "teamId": "49"
+		},
+		{
+		  "teamId": "64"
+		},
+		{
+		  "teamId": "56"
+		},
+		{
+		  "teamId": "57"
+		},
+		{
+		  "teamId": "53"
+		},
+		{
+		  "teamId": "60"
+		},
+		{
+		  "teamId": "52"
+		},
+		{
+		  "teamId": "61"
+		},
+		{
+		  "teamId": "54"
+		},
+		{
+		  "teamId": "59"
+		},
+		{
+		  "teamId": "51"
+		},
+		{
+		  "teamId": "62"
+		},
+		{
+		  "teamId": "55"
+		},
+		{
+		  "teamId": "58"
+		},
+		{
+		  "teamId": "50"
+		},
+		{
+		  "teamId": "63"
+		}
+	  ],
+	  "2": [
+		{
+		  "topTeamId": 49,
+		  "bottomTeamId": 64,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 56,
+		  "bottomTeamId": 57,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 53,
+		  "bottomTeamId": 60,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 52,
+		  "bottomTeamId": 61,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 54,
+		  "bottomTeamId": 59,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 51,
+		  "bottomTeamId": 62,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 55,
+		  "bottomTeamId": 58,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": 50,
+		  "bottomTeamId": 63,
+		  "winningTeamId": false
+		}
+	  ],
+	  "3": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "4": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "5": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ]
+	}
+  },
+  "finals": {
+	"name": "Finals",
+	"rounds": {
+	  "1": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		},
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ],
+	  "2": [
+		{
+		  "topTeamId": false,
+		  "bottomTeamId": false,
+		  "winningTeamId": false
+		}
+	  ]
+	}
+  }
+}

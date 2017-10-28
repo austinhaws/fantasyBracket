@@ -378,6 +378,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	border-left: 1px solid #fff;
+	justify-content: space-between;
 }
 .roundTitle:nth-child(7) {
 	width: 164px;
@@ -437,6 +438,13 @@ body {
 }
 .dragTeamsContainer div:nth-child(2) {
 	margin-top: 7px;
+}
+.dragTeamsContainer .correct {
+	color: green;
+}
+.dragTeamsContainer .incorrect {
+	text-decoration: line-through;
+	color: red;
 }
 .bracketContainerMiddle .conferenceContainer, .bracketContainerMiddle .roundsContainer {
 	height: 100%;

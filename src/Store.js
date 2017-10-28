@@ -44,9 +44,13 @@ const store = createStore((state, action) => {
 		// the current tournament
 		tournament: undefined,
 
+		// the current logged in person's picks
+		myPicks: undefined,
+
 		bracket: {
 			// which game is currently selected
 			draggedGame: undefined,
+			// possible places to drop the currently dragged game
 			droppableGames: undefined,
 		},
 		gameEdit: {

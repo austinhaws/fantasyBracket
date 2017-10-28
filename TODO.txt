@@ -1,5 +1,7 @@
 == my bracket ==
 teams are draggable, not games, but games are droppable locations
+pass in to the bracket which "conferences" to use; for a real bracket it uses the tournament's conferences; for a player's bracket it uses their picks "conferences"
+	these two datas are in the same structure/layout but contain different game data
 [ ] drag and drop team to any place in the bracket to auto fill it through to the that game
 [ ] use same conference/round components, but use an picker game component for the game.
 [ ] when drag and dropping, show possible targets with a different UI so that it's easy to see where that team can go

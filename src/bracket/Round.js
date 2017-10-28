@@ -30,7 +30,7 @@ Round.PropTypes = {
 	conference: PropTypes.string.isRequired,
 	// which round is being shown - determine show many games to show
 	round: PropTypes.number.isRequired,
-	// the games being played this round (should be 5 long)
+	// the games being played this round
 	games: PropTypes.array.isRequired,
 };
 

@@ -14,7 +14,13 @@ class DragTeamClass extends React.Component {
 	}
 
 	render() {
-		return <div onMouseDown={this.startDrag.bind(this)}>{this.teamName(this.props.team)}</div>;
+		let statusClass = '';
+		if (this.props.isCorrect === true) {
+			statusClass = 'correct';
+		} else if (this.props.isCorrect === false) {
+			statusClass = 'incorrect';
+		}
+		return <div className={statusClass} onMouseDown={this.startDrag.bind(this)}>{this.teamName(this.props.team)}</div>;
 	}
 }
 
@@ -27,6 +33,9 @@ DragTeamClass.PropTypes = {
 	round: PropTypes.number.isRequired,
 	// which game number in the group of games is this?
 	gameNumber: PropTypes.number.isRequired,
+
+	// used for styling: true = this is a correct pick; false = this is not a correct pick; undefined means it is not yet decided
+	isCorrect: PropTypes.bool,
 
 
 	// -- DISPATCHERS -- //

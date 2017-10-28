@@ -53,7 +53,7 @@ const shared = {
 					data: doNotUseCsrf ? data : (isRequestBody ? JSON.stringify(shared.funcs.csrf(data)) : shared.funcs.csrf(data)),
 					cache: false,
 					success: callback,
-					error: shared.funcs.ajaxFail,
+					error: result => {console.error('ajax error', result); shared.funcs.ajaxFail},
 					complete: shared.funcs.stopAjax,
 				});
 			} else {
@@ -75,10 +75,7 @@ const shared = {
 		},
 
 		// who is currently logged in?
-		getCurrentUser: () => {
-			shared.funcs.ajax('POST', 'ws/user/current', {},
-				user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user}));
-		},
+		getCurrentUser: () => shared.funcs.ajax('POST', 'ws/user/current', {}, user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user})),
 
 		getCurrentTournament: callback => shared.funcs.ajax('GET', 'ws/tournament/current', {}, tournament => {
 			store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament});
@@ -86,6 +83,8 @@ const shared = {
 				callback(tournament);
 			}
 		}),
+
+		getMyPicks: () => shared.funcs.ajax('GET', 'ws/user/myPicks', {}, myPicks => store.dispatch({type: reducers.ACTION_TYPES.SET_MY_PICKS, payload: myPicks})),
 
 		// app has started, get some basic information
 		startup: () => {
@@ -99,10 +98,10 @@ const shared = {
 				// get user information
 				shared.funcs.getCurrentUser();
 				shared.funcs.getCurrentTournament();
+				shared.funcs.getMyPicks();
 			});
 		},
 
-		getGame: ({conference, round, gameNumber}) => store.getState().tournament.conferences[conference].rounds[round][gameNumber],
 		getTeam: teamId => Object.assign({teamId: teamId}, store.getState().tournament.teams[teamId]),
 		getRoundInfo: round => store.getState().tournament.dates.filter(d => d.round === round),
 	},

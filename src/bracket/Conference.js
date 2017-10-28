@@ -17,7 +17,7 @@ class ConferenceClass extends React.Component {
 			<div className="conferenceContainer">
 				<div className="conferenceTitle">{this.conference.name}</div>
 				<div className="roundsContainer">
-					{Object.keys(this.conference.rounds).map(i => <Round realBracket={this.props.realBracket} conference={this.props.conference} round={parseInt(i, 10)} key={`round-${i}`} games={this.conference.rounds[i]}/>)}
+					{Object.keys(this.conference.rounds).map(i => <Round realBracket={this.props.realBracket} conference={this.props.conference} round={parseInt(i, 10)} key={`round-${i}`} games={this.props.realBracket ? this.conference.rounds[i] : this.props.myPicks[this.props.conference].rounds[i]}/>)}
 				</div>
 			</div>
 		);
@@ -30,6 +30,8 @@ ConferenceClass.PropTypes = {
 	realBracket: PropTypes.bool.isRequired,
 	// which conference is this? use Conference.CONFERENCES... constants
 	conference: PropTypes.string.isRequired,
+	// mypicks if editing your own bracket
+	myPicks: PropTypes.object,
 };
 
 const Conference = connect(

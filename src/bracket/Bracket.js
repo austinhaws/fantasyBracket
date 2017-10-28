@@ -5,21 +5,29 @@ import PropTypes from "prop-types";
 import Conference from "./Conference";
 import RealGame from "./game/RealGame";
 import shared from "../Shared";
+import DragGame from "./game/DragGame";
 
 class BracketClass extends React.Component {
-	constructor(props) {
-		super(props);
 
-		if (!this.props.tournament) {
-			shared.funcs.getCurrentTournament();
-		}
+	// get game properties object to send to a RealGame or DragGame component
+	getGameProps(bracket, conference, round, gameNumber) {
+		return {
+			game: bracket[conference].rounds[round][gameNumber],
+			conference: conference,
+			round: round,
+			gameNumber: gameNumber,
+		};
 	}
 
 	render() {
-		if (!this.props.tournament) {
+		if (!this.props.tournament || (!this.props.realBracket && !this.props.myPicks)) {
 			return false;
 		}
 
+		const useBracket = this.props.realBracket ? this.props.tournament.conferences : this.props.myPicks;
+		const finalsGame10 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 0);
+		const finalsGame11 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 1);
+		const finalsGame20 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 2, 0);
 		return (
 			<div className="bracketTopContainer">
 				<div className="roundTitles" key="titles">
@@ -46,9 +54,9 @@ class BracketClass extends React.Component {
 					<div className="bracketContainerMiddle" key="middle">
 						<div className="conferenceContainer">
 							<div className="roundsContainer">
-								<RealGame conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={0}/>
-								<RealGame conference={Conference.CONFERENCES.FINALS} round={2} gameNumber={0}/>
-								<RealGame conference={Conference.CONFERENCES.FINALS} round={1} gameNumber={1}/>
+								{this.props.realBracket ? <RealGame {...finalsGame10}/> : <DragGame {...finalsGame10}/>}
+								{this.props.realBracket ? <RealGame {...finalsGame20}/> : <DragGame {...finalsGame20}/>}
+								{this.props.realBracket ? <RealGame {...finalsGame11}/> : <DragGame {...finalsGame11}/>}
 							</div>
 						</div>
 					</div>
@@ -66,6 +74,9 @@ BracketClass.PropTypes = {
 	// == Props == //
 	// true if this the real bracket to edit for played games, false if someone is editing their own bracket
 	realBracket: PropTypes.bool.isRequired,
+
+	// if doing my bracket then this is their picks, otherwise it's the real bracket
+	myPicks: PropTypes.object,
 
 	// == STORE == //
 	// the logged in user

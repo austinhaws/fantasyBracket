@@ -17,6 +17,7 @@ let reducers = {
 		SET_USER: 'SET_USER',
 
 		SET_TOURNAMENT: 'SET_TOURNAMENT',
+		SET_MY_PICKS: 'SET_MY_PICKS',
 
 		// tournament edit page
 		TOURNAMENT: {
@@ -30,6 +31,7 @@ let reducers = {
 		BRACKET: {
 			// clicked on a game and started dragging
 			START_DRAG: 'START_DRAG',
+			PICK_TEAM_TO_GAME: 'PICK_TEAM_TO_GAME',
 		},
 
 		// game edit page
@@ -99,6 +101,12 @@ reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 	});
 	result.home.nextDateIndex = shared.vars.upcomingDates.reduce((result, d, i) => (result === false && d.afterToday) ? i : result, false);
 
+	return result;
+};
+
+reducers[reducers.ACTION_TYPES.SET_MY_PICKS] = (state, action) => {
+	const result = copyState(state);
+	result.myPicks = action.payload;
 	return result;
 };
 

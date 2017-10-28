@@ -7,27 +7,33 @@ import DragTeam from "./DragTeam";
 
 // drag and drop game for editing your bracket
 class DragGameClass extends React.Component {
-	teamName(team) {
-		return team ? `${team.name} (${team.rank})` : false;
-	}
 	render() {
-		const game = shared.funcs.getGame(this.props);
+		const realGame = this.props.tournament.conferences[this.props.conference].rounds[this.props.round][this.props.gameNumber];
 
-		const team = shared.funcs.getTeam(game.teamId);
-		const teamTop = shared.funcs.getTeam(game.topTeamId);
-		const teamBottom = shared.funcs.getTeam(game.bottomTeamId);
+		const pickedTeam = this.props.game.winningTeamId ? shared.funcs.getTeam(this.props.game.winningTeamId) : false;
+		let team = false;
+		if (this.props.game.teamId) {
+			team = shared.funcs.getTeam(this.props.game.teamId);
+		} else if (pickedTeam) {
+			team = pickedTeam;
+		}
+		const teamProps = team ? {
+			conference: this.props.conference,
+			round: this.props.round,
+			gameNumber: this.props.gameNumber,
+			team: team,
+		} : false;
+
+		if (teamProps && realGame.winningTeamId) {
+			teamProps.isCorrect = realGame.winningTeamId === teamProps.team.teamId;
+		}
 
 		return (
-			<div className="dragGameContainer game">{
-				team.name ?
-					<DragTeam {...Object.assign({team: team}, this.props)}/>
-					: (
-						<div className="dragTeamsContainer">
-							<DragTeam {...Object.assign({team: teamTop}, this.props)}/>
-							<DragTeam {...Object.assign({team: teamBottom}, this.props)}/>
-						</div>
-					)
-			}</div>
+			<div className={`dragGameContainer ${team.name ? 'game' : ''}`}>
+				<div className={`dragTeamsContainer ${team.name ? '' : 'game'}`}>
+					{teamProps ? <DragTeam {...teamProps}/> : false}
+				</div>
+			</div>
 		);
 	}
 }
