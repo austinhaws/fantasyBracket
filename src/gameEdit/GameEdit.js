@@ -29,7 +29,7 @@ class GameEditClass extends React.Component {
 
 	saveGame() {
 		// save to server
-		shared.funcs.ajax('POST', 'ws/game/save', {
+		shared.funcs.ajax('POST', 'game/save', {
 			conference: this.props.conference,
 			round: this.props.round,
 			gameNumber: this.props.gameNumber,

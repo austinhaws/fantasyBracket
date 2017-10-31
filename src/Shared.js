@@ -7,11 +7,19 @@ import jsLogging from 'dts-js-logging';
 const shared = {
 	funcs: {
 		/**
+		 * get the csrf object from the state taken in to account that the token may not yet be fetched
+		 * @return csrf object or false if not yet gotten
+		 */
+		getCsrf: () => {
+			const csrf = store.getState().csrf;
+			return (csrf && csrf.name) ? csrf : false;
+		},
+		/**
 		 * adds csrf to data packet. useful for ajax calls.
 		 * @param data your data to which the csrf name/token will be added. can be false/null/blank
 		 */
 		csrf: data => {
-			const csrf = store.getState().csrf;
+			const csrf = shared.funcs.getCsrf();
 			return csrf ? Object.assign({[csrf.name]: csrf.token}, data ? data : {}) : data;
 		},
 
@@ -22,7 +30,7 @@ const shared = {
 		 * @return {string} url w/ token
 		 */
 		csrfUrl: url => {
-			const csrf = store.getState().csrf;
+			const csrf = shared.funcs.getCsrf();
 			return csrf ? `${url}${url.includes('?') ? '&' : '?'}${csrf.name}=${csrf.token}` : url;
 		},
 
@@ -49,11 +57,14 @@ const shared = {
 					type: method,
 					contentType: "application/json; charset=utf-8",
 					dataType: "json",
-					url: doNotUseCsrf ? url : shared.funcs.csrfUrl(url),
+					url: shared.vars.urlBase + (doNotUseCsrf ? url : shared.funcs.csrfUrl(url)),
 					data: doNotUseCsrf ? data : (isRequestBody ? JSON.stringify(shared.funcs.csrf(data)) : shared.funcs.csrf(data)),
 					cache: false,
 					success: callback,
-					error: result => {console.error('ajax error', result); shared.funcs.ajaxFail},
+					error: result => {
+						console.error('ajax error', result);
+						shared.funcs.ajaxFail();
+					},
 					complete: shared.funcs.stopAjax,
 				});
 			} else {
@@ -63,7 +74,7 @@ const shared = {
 
 		// get csrf token for posting
 		refreshCsrf: callback => {
-			shared.funcs.ajax('GET', 'ws/csrf/get', {},
+			shared.funcs.ajax('GET', 'csrf/get', {},
 				csrf => {
 					jsLogging({url: 'log/error.json', csrfName: csrf.parameterName, csrfToken: csrf.token,});
 
@@ -75,16 +86,16 @@ const shared = {
 		},
 
 		// who is currently logged in?
-		getCurrentUser: () => shared.funcs.ajax('POST', 'ws/user/current', {}, user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user})),
+		getCurrentUser: () => shared.funcs.ajax('POST', 'user/current', {}, user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user})),
 
-		getCurrentTournament: callback => shared.funcs.ajax('GET', 'ws/tournament/current', {}, tournament => {
+		getCurrentTournament: callback => shared.funcs.ajax('GET', 'tournament/current', {}, tournament => {
 			store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament});
 			if (callback) {
 				callback(tournament);
 			}
 		}),
 
-		getMyPicks: () => shared.funcs.ajax('GET', 'ws/user/myPicks', {}, myPicks => store.dispatch({type: reducers.ACTION_TYPES.SET_MY_PICKS, payload: myPicks})),
+		getMyPicks: () => shared.funcs.ajax('GET', 'user/myPicks', {}, myPicks => store.dispatch({type: reducers.ACTION_TYPES.SET_MY_PICKS, payload: myPicks})),
 
 		// app has started, get some basic information
 		startup: () => {
@@ -112,6 +123,11 @@ const shared = {
 		delayAjaxes: [],
 		// moment information about tournament upcoming dates, since these are objects, they don't translate well to redux store state copying w/ json stringify/parse
 		upcomingDates: false,
+
+		// remote webservice - dev
+		urlBase: 'http://localhost:8080/',
+		// local static urls
+		// urlBase: 'http://localhost:8080/',
 	},
 };
 

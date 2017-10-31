@@ -35,7 +35,7 @@ class TournamentClass extends React.Component {
 	}
 
 	saveTournament(history) {
-		shared.funcs.ajax('POST', 'ws/tournament/save', this.props.tournamentEdit.tournament, () => history.push('./'), false, false, false);
+		shared.funcs.ajax('POST', 'tournament/save', this.props.tournamentEdit.tournament, () => history.push('./'), false, false, false);
 	}
 
 	render() {
