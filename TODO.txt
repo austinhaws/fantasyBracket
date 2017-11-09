@@ -1,3 +1,8 @@
+[ ] change urls to actual node server urls
+	person instead of user
+	picks instead of mypicks
+	base url for web api
+
 == my bracket ==
 teams are draggable, not games, but games are droppable locations
 pass in to the bracket which "conferences" to use; for a real bracket it uses the tournament's conferences; for a player's bracket it uses their picks "conferences"

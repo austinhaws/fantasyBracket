@@ -86,7 +86,7 @@ reducers[reducers.ACTION_TYPES.SET_USER] = (state, action) => {
 // payload: the tournament
 reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 	const result = copyState(state);
-	result.tournament = action.payload;
+	result.tournament = JSON.parse(action.payload);
 
 	// load extra info like next upcoming date
 	result.home.nextDateIndex = 0;

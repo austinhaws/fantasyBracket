@@ -74,7 +74,7 @@ const shared = {
 
 		// get csrf token for posting
 		refreshCsrf: callback => {
-			shared.funcs.ajax('GET', 'csrf/get', {},
+			shared.funcs.ajax('GET', 'csrf/current', {},
 				csrf => {
 					jsLogging({url: 'log/error.json', csrfName: csrf.parameterName, csrfToken: csrf.token,});
 
@@ -86,7 +86,7 @@ const shared = {
 		},
 
 		// who is currently logged in?
-		getCurrentUser: () => shared.funcs.ajax('POST', 'user/current', {}, user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user})),
+		getCurrentUser: () => shared.funcs.ajax('GET', 'person/current', {}, user => store.dispatch({type: reducers.ACTION_TYPES.SET_USER, payload: user})),
 
 		getCurrentTournament: callback => shared.funcs.ajax('GET', 'tournament/current', {}, tournament => {
 			store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament});
@@ -95,7 +95,7 @@ const shared = {
 			}
 		}),
 
-		getMyPicks: () => shared.funcs.ajax('GET', 'user/myPicks', {}, myPicks => store.dispatch({type: reducers.ACTION_TYPES.SET_MY_PICKS, payload: myPicks})),
+		getMyPicks: () => shared.funcs.ajax('GET', 'person/picks', {}, myPicks => store.dispatch({type: reducers.ACTION_TYPES.SET_MY_PICKS, payload: myPicks})),
 
 		// app has started, get some basic information
 		startup: () => {
@@ -125,7 +125,7 @@ const shared = {
 		upcomingDates: false,
 
 		// remote webservice - dev
-		urlBase: 'http://localhost:8080/',
+		urlBase: 'http://localhost:8080/api/',
 		// local static urls
 		// urlBase: 'http://localhost:8080/',
 	},
