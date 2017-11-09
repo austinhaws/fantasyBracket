@@ -78,7 +78,7 @@ const shared = {
 				csrf => {
 					jsLogging({url: 'log/error.json', csrfName: csrf.parameterName, csrfToken: csrf.token,});
 
-					store.dispatch({type: reducers.ACTION_TYPES.SET_CSRF, payload: {name: csrf.parameterName, token: csrf.token}});
+					store.dispatch({type: reducers.ACTION_TYPES.SET_CSRF, payload: {name: csrf.csrfName, token: csrf.csrfToken}});
 					if (callback) {
 						callback();
 					}
