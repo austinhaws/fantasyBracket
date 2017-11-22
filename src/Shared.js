@@ -47,6 +47,7 @@ const shared = {
 		 * @param callback - function to get the results of the ajax call
 		 * @param isRequestBody if true then sends as json string instead of data packet
 		 * @param isRefreshCsrf is this the csrf fetch call? all other calls will be queued for later
+		 * @param doNotUseCsrf if true then the csrf is not sent in the call; not sure who wants this but go for it
 		 */
 		ajax: (method, url, data, callback, isRequestBody, isRefreshCsrf, doNotUseCsrf) => {
 			// wait for csrf to complete before actually performing the request

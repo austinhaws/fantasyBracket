@@ -85,7 +85,7 @@ reducers[reducers.ACTION_TYPES.SET_USER] = (state, action) => {
 // set the current tournament being used; also update some cached things like upcoming dates and next date
 // payload: the tournament
 reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
-	const result = copyState(state);
+	let result = copyState(state);
 	result.tournament = action.payload;
 
 	// load extra info like next upcoming date
@@ -101,7 +101,8 @@ reducers[reducers.ACTION_TYPES.SET_TOURNAMENT] = (state, action) => {
 	});
 	result.home.nextDateIndex = shared.vars.upcomingDates.reduce((result, d, i) => (result === false && d.afterToday) ? i : result, false);
 
-	return result;
+	// also update the current editing tournament
+	return reducers[reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT](result, action);
 };
 
 reducers[reducers.ACTION_TYPES.SET_MY_PICKS] = (state, action) => {

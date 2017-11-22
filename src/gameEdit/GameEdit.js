@@ -29,20 +29,7 @@ class GameEditClass extends React.Component {
 
 	saveGame() {
 		// save to server
-		shared.funcs.ajax('POST', 'game/save', {
-			conference: this.props.conference,
-			round: this.props.round,
-			gameNumber: this.props.gameNumber,
-			gameEdit: this.props.gameEdit,
-		});
-
-		// update tournament store game
-		store.dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.UPDATE_GAME, payload: {
-			conference: this.props.conference,
-			round: this.props.round,
-			gameNumber: this.props.gameNumber,
-			game: this.props.gameEdit.game,
-		}});
+		shared.funcs.ajax('POST', 'game/save', this.props.gameEdit, tournament => store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament}), true);
 	}
 
 	render() {

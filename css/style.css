@@ -499,7 +499,7 @@ body {
 .inputColumns {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: center;
 }
 .inputColumn {
 	border-left: 1px dotted #aaa;
@@ -507,6 +507,7 @@ body {
 }
 .inputColumn:first-child {
 	border-left: none;
+	margin-right: 20px;
 }
 
 .inputColumn .teamName {
