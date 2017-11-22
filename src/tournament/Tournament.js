@@ -5,6 +5,7 @@ import {Route, withRouter} from "react-router";
 import shared from "../Shared";
 import reducers from "../Reducers";
 import {Button, InputInformation} from "dts-react-common";
+import store from '../Store.js';
 
 class DateInput extends React.Component {
 	render() {
@@ -35,7 +36,11 @@ class TournamentClass extends React.Component {
 	}
 
 	saveTournament(history) {
-		shared.funcs.ajax('POST', 'tournament/save', this.props.tournamentEdit.tournament, () => history.push('./'), false, false, false);
+		shared.funcs.ajax('POST', 'tournament/save', this.props.tournamentEdit.tournament, tournament => {
+			store.dispatch({type: reducers.ACTION_TYPES.SET_TOURNAMENT, payload: tournament});
+			store.dispatch({type: reducers.ACTION_TYPES.TOURNAMENT.SET_EDITING_TOURNAMENT, payload: tournament});
+			history.push('./');
+		}, true, false, false);
 	}
 
 	render() {

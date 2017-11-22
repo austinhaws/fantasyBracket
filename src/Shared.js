@@ -66,6 +66,10 @@ const shared = {
 						shared.funcs.ajaxFail();
 					},
 					complete: shared.funcs.stopAjax,
+					// set withCredentials to true for cross-domain requests
+					xhrFields: {
+						withCredentials: true
+					},
 				});
 			} else {
 				shared.vars.delayAjaxes.push([method, url, data, callback, isRequestBody]);

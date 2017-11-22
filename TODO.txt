@@ -1,7 +1,6 @@
 [ ] change urls to actual node server urls
-	person instead of user
-	picks instead of mypicks
-	base url for web api
+	[ ] save tournament settings dates/rolls
+	[ ] save real bracket game edit
 
 == my bracket ==
 teams are draggable, not games, but games are droppable locations
