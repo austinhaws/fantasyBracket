@@ -4,6 +4,55 @@ import reducers from "../../Reducers";
 import {connect} from "react-redux";
 import shared from "../../Shared";
 import DragTeam from "./DragTeam";
+import {DropTarget} from 'react-dnd';
+import {ItemTypes} from "../Constants";
+import Conference from "../Conference";
+
+const gameTarget = {
+	drop(props, monitor) {
+		console.log('dropped at', props, monitor.getItem());
+		// pickGame(props.x, props.y);
+	},
+
+	canDrop(targetProps, targetMonitor) {
+		let canMove = false;
+		const dragTeam = targetMonitor.getItem();
+		// (conference has to match) or (drag is not finals and target is finals)
+		if (targetProps.conference === Conference.CONFERENCES.FINALS && dragTeam.conference !== Conference.CONFERENCES.FINALS) {
+			if (targetProps.round === 1) {
+				if (targetProps.gameNumber === 0) {
+					// round 1 game 1 comes from top left and bottom left
+					canMove = dragTeam.conference === Conference.CONFERENCES.TOP_LEFT || dragTeam.conference === Conference.CONFERENCES.BOTTOM_LEFT;
+				} else {
+					// round 1 game 2 comes from top right and bottom right
+					canMove = dragTeam.conference === Conference.CONFERENCES.TOP_RIGHT || dragTeam.conference === Conference.CONFERENCES.BOTTOM_RIGHT;
+				}
+			} else {
+				// round 2 game 1 comes from both sides (finals game)
+				canMove = true;
+			}
+		} else if (targetProps.conference === dragTeam.conference) {
+			if (targetProps.round > dragTeam.round) {
+				const loopTeam = Object.assign({}, dragTeam);
+
+				for (; loopTeam.round < targetProps.round; loopTeam.round++) {
+					loopTeam.gameNumber = Math.floor(loopTeam.gameNumber / 2);
+				}
+				canMove = targetProps.gameNumber === loopTeam.gameNumber;
+			}
+		}
+		return canMove;
+	}
+
+};
+
+function collectDrop(connect, monitor) {
+	return {
+		connectDropTarget: connect.dropTarget(),
+		isOver: monitor.isOver(),
+		canDrop: monitor.canDrop(),
+	};
+}
 
 // drag and drop game for editing your bracket
 class DragGameClass extends React.Component {
@@ -28,9 +77,10 @@ class DragGameClass extends React.Component {
 			teamProps.isCorrect = realGame.winningTeamId === teamProps.team.teamId;
 		}
 
-		return (
+		const { connectDropTarget, isOver, canDrop} = this.props;
+		return connectDropTarget(
 			<div className={`dragGameContainer ${team.name ? 'game' : ''}`}>
-				<div className={`dragTeamsContainer ${team.name ? '' : 'game'}`}>
+				<div className={`dragTeamsContainer ${team.name ? '' : 'game'} ${(isOver && canDrop) ? 'dragOver' : ''}`}>
 					{teamProps ? <DragTeam {...teamProps}/> : false}
 				</div>
 			</div>
@@ -56,6 +106,10 @@ DragGameClass.PropTypes = {
 	// -- DISPATCHERS -- //
 	// a drag started on this game
 	startCellDrag: PropTypes.func.isRequired,
+
+	// -- DRAGGING -- //
+	connectDropTarget: PropTypes.func.isRequired,
+	isOver: PropTypes.bool.isRequired
 };
 
 const DragGame = connect(
@@ -67,4 +121,5 @@ const DragGame = connect(
 	},
 )(DragGameClass);
 
-export default DragGame;
+
+export default DropTarget(ItemTypes.TEAM, gameTarget, collectDrop)(DragGame);

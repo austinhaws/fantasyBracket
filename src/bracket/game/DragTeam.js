@@ -2,6 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import reducers from "../../Reducers";
 import {connect} from "react-redux";
+import {DragSource} from 'react-dnd';
+import {ItemTypes} from '../Constants';
+
+
+const teamSource = {
+	beginDrag(props) {
+		return {
+			conference: props.conference,
+			round: props.round,
+			gameNumber: props.gameNumber,
+		};
+	}
+};
+
+function collectDrag(connect, monitor) {
+	return {
+		connectDragSource: connect.dragSource(),
+		isDragging: monitor.isDragging()
+	}
+}
 
 // drag and drop game for editing your bracket
 class DragTeamClass extends React.Component {
@@ -20,7 +40,10 @@ class DragTeamClass extends React.Component {
 		} else if (this.props.isCorrect === false) {
 			statusClass = 'incorrect';
 		}
-		return <div className={statusClass} onMouseDown={this.startDrag.bind(this)}>{this.teamName(this.props.team)}</div>;
+		const { connectDragSource, isDragging} = this.props;
+		return connectDragSource(
+			<div className={statusClass} onMouseDown={this.startDrag.bind(this)}>{this.teamName(this.props.team)}</div>
+		);
 	}
 }
 
@@ -41,6 +64,10 @@ DragTeamClass.PropTypes = {
 	// -- DISPATCHERS -- //
 	// a drag started on this game
 	startCellDrag: PropTypes.func.isRequired,
+
+	// -- DRAGGING -- //
+	connectDragSource: PropTypes.func.isRequired,
+	isDragging: PropTypes.bool.isRequired,
 };
 
 const DragTeam = connect(
@@ -52,4 +79,4 @@ const DragTeam = connect(
 	},
 )(DragTeamClass);
 
-export default DragTeam;
+export default DragSource(ItemTypes.TEAM, teamSource, collectDrag)(DragTeam);

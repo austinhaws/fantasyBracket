@@ -6,6 +6,8 @@ import Conference from "./Conference";
 import RealGame from "./game/RealGame";
 import shared from "../Shared";
 import DragGame from "./game/DragGame";
+import {DragDropContext} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 class BracketClass extends React.Component {
 
@@ -43,7 +45,8 @@ class BracketClass extends React.Component {
 										<div key="round">{roundName}</div>
 										<div key="date">{roundDate}</div>
 									</div>
-								)})
+								)
+							})
 					}
 				</div>
 				<div className="bracketContainer">
@@ -91,4 +94,4 @@ const Bracket = withRouter(connect(
 	},
 )(BracketClass));
 
-export default Bracket;
+export default DragDropContext(HTML5Backend)(Bracket);
