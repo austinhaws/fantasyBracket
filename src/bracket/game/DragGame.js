@@ -7,11 +7,12 @@ import DragTeam from "./DragTeam";
 import {DropTarget} from 'react-dnd';
 import {ItemTypes} from "../Constants";
 import Conference from "../Conference";
+import store from '../../Store';
 
 const gameTarget = {
 	drop(props, monitor) {
-		console.log('dropped at', props, monitor.getItem());
-		// pickGame(props.x, props.y);
+		shared.funcs.pickGameForward(monitor.getItem(), props, picks => store.dispatch({type: reducers.ACTION_TYPES.SET_MY_PICKS, payload: picks}));
+console.log('dropped at', props, monitor.getItem());
 	},
 
 	canDrop(targetProps, targetMonitor) {
@@ -103,10 +104,6 @@ DragGameClass.PropTypes = {
 	// the bracket edit object from the store
 	bracket: PropTypes.object.isRequired,
 
-	// -- DISPATCHERS -- //
-	// a drag started on this game
-	startCellDrag: PropTypes.func.isRequired,
-
 	// -- DRAGGING -- //
 	connectDropTarget: PropTypes.func.isRequired,
 	isOver: PropTypes.bool.isRequired
@@ -114,11 +111,7 @@ DragGameClass.PropTypes = {
 
 const DragGame = connect(
 	state => state,
-	dispatch => {
-		return {
-			startCellDrag: (conference, round, gameNumber) => dispatch({type: reducers.ACTION_TYPES.BRACKET.START_DRAG, payload: {conference: conference, round: round, gameNumber: gameNumber}}),
-		}
-	},
+	dispatch => {return {};},
 )(DragGameClass);
 
 

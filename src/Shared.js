@@ -120,6 +120,15 @@ const shared = {
 
 		getTeam: teamId => Object.assign({teamId: teamId}, store.getState().tournament.teams[teamId]),
 		getRoundInfo: round => store.getState().tournament.dates.filter(d => d.round === round),
+
+		pickGameForward: (fromGame, toGame, callback) => {
+			shared.funcs.ajax(
+				'POST', 'person/pick', {
+					fromGame: {conference: fromGame.conference, round: fromGame.round, gameNumber: fromGame.gameNumber},
+					toGame: {conference: toGame.conference, round: toGame.round, gameNumber: toGame.gameNumber},
+				}, callback, true
+			)
+		}
 	},
 	vars: {
 		// has csrf been fetched?
