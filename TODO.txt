@@ -1,5 +1,10 @@
 [ ] server: "person/picks" if a person does not have a picks, then create a blank one
 
+[ ] on my picks, udpate the UI a bit and show which games still need picked (have red squiggly bottom border?
+
+[ ] pick a team to go to win the final game, pick another team to replace that team as a winner right before the grand winner;
+the new team goes in good, but the other team is still in the final position, needs to clear out that team
+
 == my bracket ==
 teams are draggable, not games, but games are droppable locations
 pass in to the bracket which "conferences" to use; for a real bracket it uses the tournament's conferences; for a player's bracket it uses their picks "conferences"

@@ -12,7 +12,6 @@ import store from '../../Store';
 const gameTarget = {
 	drop(props, monitor) {
 		shared.funcs.pickGameForward(monitor.getItem(), props, picks => store.dispatch({type: reducers.ACTION_TYPES.SET_MY_PICKS, payload: picks}));
-console.log('dropped at', props, monitor.getItem());
 	},
 
 	canDrop(targetProps, targetMonitor) {
