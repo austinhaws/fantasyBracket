@@ -1,25 +1,10 @@
-[ ] server: "person/picks" if a person does not have a picks, then create a blank one
+[ ] when admin changes teams, clear all picks since the picks should not have been made before that anyways, and then when they don't have picks just set up a new one.
 
-[ ] on my picks, udpate the UI a bit and show which games still need picked (have red squiggly bottom border?
-
-[ ] pick a team to go to win the final game, pick another team to replace that team as a winner right before the grand winner;
-the new team goes in good, but the other team is still in the final position, needs to clear out that team
+[ ] on my picks, udpate the UI to show which games still need picked (have red squiggly bottom border?)
 
 == my bracket ==
-teams are draggable, not games, but games are droppable locations
-pass in to the bracket which "conferences" to use; for a real bracket it uses the tournament's conferences; for a player's bracket it uses their picks "conferences"
-	these two datas are in the same structure/layout but contain different game data
-[ ] drag and drop team to any place in the bracket to auto fill it through to the that game
-[ ] use same conference/round components, but use an picker game component for the game.
-[ ] when drag and dropping, show possible targets with a different UI so that it's easy to see where that team can go
-	[ ] drag from round 2 (shows 3, 4, 5, 6, 7, 8 rounds as droppable) drop in round 6 and auto fills rounds 3, 4, 5
 [ ] bracket is not editable after bracket entry date or <= teams picked date
 [ ] red menu item for current bracket if don't yet have one and after teams picked date
-
-
-== build webservice ==
-[ ] take deployer and strip it since this already is doing html only pages
-[ ] do tomcat so others can play with it
 
 == tournament edit ==
 [ ] WS: when saving an edited game, also update the next game with the picked winner - webservice returnsupdated tournament
@@ -31,18 +16,4 @@ pass in to the bracket which "conferences" to use; for a real bracket it uses th
 	[ ] roll strips - show rank and roll so that rolling can go smoother
 
 [ ] account page - for email notifications like upcoming dates and round notifications - default all settings to off
-
-
-/*  == Drag ANd Drop Detector ==
-<div className={`game ${dragged ? 'dragged' : ''} ${droppable ? 'droppable' : ''}`}
-	// onMouseDown={() => this.props.startCellDrag(this.props.conference, this.props.round, this.props.gameNumber)}/>
-
-const dragged = this.props.bracket.draggedGame
-	&& this.props.conference === this.props.bracket.draggedGame.conference
-	&& this.props.round === this.props.bracket.draggedGame.round
-	&& this.props.gameNumber === this.props.bracket.draggedGame.gameNumber;
-const droppable = this.props.bracket.droppableGames && this.props.bracket.droppableGames.filter(d =>
-	this.props.conference === d.conference
-	&& this.props.round === d.round
-	&& this.props.gameNumber === d.gameNumber).length;
-*/
+[ ] unit test back and front end
