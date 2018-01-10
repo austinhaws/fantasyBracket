@@ -539,3 +539,6 @@ body {
 	color: #ca0000;
 	font-size: 20px;
 }
+.not-picked {
+	background-color: #fff8f9;
+}

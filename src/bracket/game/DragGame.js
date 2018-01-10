@@ -80,7 +80,7 @@ class DragGameClass extends React.Component {
 		const { connectDropTarget, isOver, canDrop} = this.props;
 		return connectDropTarget(
 			<div className={`dragGameContainer ${team.name ? 'game' : ''}`}>
-				<div className={`dragTeamsContainer ${team.name ? '' : 'game'} ${(isOver && canDrop) ? 'dragOver' : ''}`}>
+				<div className={`dragTeamsContainer ${team.name ? '' : 'game'} ${(isOver && canDrop) ? 'dragOver' : ''} ${teamProps ? 'picked' : 'not-picked'}`}>
 					{teamProps ? <DragTeam {...teamProps}/> : false}
 				</div>
 			</div>
