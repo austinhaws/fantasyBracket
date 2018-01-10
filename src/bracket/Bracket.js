@@ -30,8 +30,45 @@ class BracketClass extends React.Component {
 		const finalsGame10 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 0);
 		const finalsGame11 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 1);
 		const finalsGame20 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 2, 0);
+
+		let picksRemainingDiv = false;
+		if (!this.props.realBracket) {
+			// get all the conferences
+			const missing = [
+				Conference.CONFERENCES.BOTTOM_LEFT,
+				Conference.CONFERENCES.BOTTOM_RIGHT,
+				Conference.CONFERENCES.FINALS,
+				Conference.CONFERENCES.TOP_LEFT,
+				Conference.CONFERENCES.TOP_RIGHT,
+			]
+				// get all the rounds for each conference
+				.map(conference => {
+					// get all the games for each round; rounds is a map so have to use keys
+					const rounds = useBracket[conference].rounds;
+					const roundKeys = Object.keys(rounds);
+					return roundKeys
+						// convert to round array of games
+						.map(roundKey => rounds[roundKey])
+						// put all the games together
+						.reduce((games, round) => games.concat(round), [])
+						// filter out games chosen so only non-chosen remain
+						.filter(game => game.teamId === undefined && game.winningTeamId !== 0 && !game.winningTeamId)
+						// total number of missing picks
+						.length;
+
+				})
+				// total missing games
+				.reduce((total, conferenceTotal) => total + conferenceTotal, 0);
+
+			picksRemainingDiv = missing ? (
+				<div className={['picksRemaining', missing ? 'missingPicks' : ''].join(' ')} key="picksRemaining">
+					{missing} of 63 Picks Remaining
+				</div>
+			) : false;
+		}
 		return (
 			<div className="bracketTopContainer">
+				{picksRemainingDiv}
 				<div className="roundTitles" key="titles">
 					{
 						[1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]

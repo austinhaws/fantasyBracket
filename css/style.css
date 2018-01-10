@@ -26,6 +26,7 @@ body {
 	text-align: center;
 	/* padding left to match navigation menu*/
 	padding: 20px 20px 20px 150px;
+	margin-left: 200px;
 }
 
 #appBody {
@@ -529,4 +530,12 @@ body {
 }
 .dragTeamsContainer.dragOver {
 	background-color: yellow;
+}
+.picksRemaining {
+	text-align: center;
+	color: green;
+}
+.missingPicks {
+	color: #ca0000;
+	font-size: 20px;
 }
