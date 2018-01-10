@@ -1,13 +1,19 @@
 [ ] when admin changes teams, clear all picks since the picks should not have been made before that anyways, and then when they don't have picks just set up a new one.
 
 [ ] on my picks, udpate the UI to show which games still need picked (have red squiggly bottom border?)
+[ ] set width on bracket picking
+[ ] on picker, show how many picks are left to make ( 13 of 64 picks remaining ) and have it say "All Done!" when done. red and green colors.
 
 == my bracket ==
 [ ] bracket is not editable after bracket entry date or <= teams picked date
 [ ] red menu item for current bracket if don't yet have one and after teams picked date
 
 == tournament edit ==
-[ ] WS: when saving an edited game, also update the next game with the picked winner - webservice returnsupdated tournament
+[ ] WS: when saving an edited game, also update the next game with the picked winner - webservice returns updated tournament
+
+== Scoring ==
+when admin changes a game's winner, rescore all pick sets
+	have an admin "score picks" button instead
 
 == Other ==
 [ ] reports menu - admin only
