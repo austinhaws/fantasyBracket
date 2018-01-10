@@ -67,8 +67,8 @@ class AppClass extends React.Component {
 								round={props.match.params.round}
 								gameNumber={props.match.params.gameNumber}
 							/>}/>
-							<Route path='/bracket' render={props => <Bracket realBracket={false}/>}/>
-							<Route path='/realBracket' render={props => <Bracket realBracket={true}/>}/>
+							<Route path='/bracket' render={() => <Bracket realBracket={false}/>}/>
+							<Route path='/realBracket' render={() => <Bracket realBracket={true}/>}/>
 							<Route path='/tournament' component={Tournament}/>
 							<Route component={Home}/>
 						</Switch>
@@ -76,7 +76,7 @@ class AppClass extends React.Component {
 					</div>
 				</div>
 
-				<div id="footer">VERSION.GOES.HERE | &copy;2017 DTS</div>
+				<div id="footer">1.0.0 | &copy;2017 DTS</div>
 			</div>
 		);
 	}
