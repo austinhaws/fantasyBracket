@@ -44,6 +44,9 @@ const store = createStore((state, action) => {
 		// the current tournament
 		tournament: undefined,
 
+		// current people in the app
+		people: undefined,
+
 		// the current logged in person's picks
 		myPicks: undefined,
 
@@ -61,7 +64,10 @@ const store = createStore((state, action) => {
 			conference: undefined,
 			round: undefined,
 			gameNumber: undefined,
-		}
+		},
+
+		// all brackets for the tournament (for printing)
+		allBrackets: undefined,
 	}
 
 	// for chrome redux plugin

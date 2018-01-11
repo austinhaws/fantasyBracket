@@ -124,7 +124,7 @@ class GameEditClass extends React.Component {
 	}
 }
 
-GameEditClass.PropTypes = {
+GameEditClass.propTypes = {
 	// uses Conference.CONFERENCES... constants
 	conference: PropTypes.string.isRequired,
 	// which round of the conference

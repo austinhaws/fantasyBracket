@@ -16,13 +16,13 @@ class Round extends React.Component {
 					game: g,
 					gameNumber: i,
 				};
-				return this.props.realBracket ? <RealGame {...gameProps}/> : <DragGame {...gameProps}/>;
+				return this.props.realBracket ? <RealGame {...gameProps}/> : <DragGame {...gameProps} tournament={this.props.tournament}/>;
 			})}
 		</div>;
 	}
 }
 
-Round.PropTypes = {
+Round.propTypes = {
 	// == PROPS == //
 	// true if this the real bracket to edit for played games, false if someone is editing their own bracket
 	realBracket: PropTypes.bool.isRequired,
@@ -32,6 +32,8 @@ Round.PropTypes = {
 	round: PropTypes.number.isRequired,
 	// the games being played this round
 	games: PropTypes.array.isRequired,
+	// the tournament
+	tournament: PropTypes.object.isRequired,
 };
 
 export default Round;

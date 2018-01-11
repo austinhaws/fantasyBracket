@@ -26,7 +26,6 @@ body {
 	text-align: center;
 	/* padding left to match navigation menu*/
 	padding: 20px 20px 20px 150px;
-	margin-left: 200px;
 }
 
 #appBody {
@@ -390,7 +389,7 @@ body {
 	align-items: center;
 }
 .roundTitle, .game {
-	padding: 8px;
+	padding: 4px;
 	width: 100px;
 	display: flex;
 	justify-content: space-around;
@@ -408,9 +407,8 @@ body {
 	flex-direction: column;
 	border-left: 1px solid #aaa;
 	border-bottom: 1px solid #aaa;
-	margin-top: 4px;
 	margin-bottom: 4px;
-	font-size: 11px;
+	font-size: 10px;
 }
 .bracketContainerRight .game, .bracketContainerMiddle .game:last-child {
 	border-left: none;
@@ -541,4 +539,11 @@ body {
 }
 .not-picked {
 	background-color: #fff8f9;
+}
+.bracketTopContainer .playerName {
+	position: absolute;
+	top: 66px;
+	text-align: center;
+	width: 100%;
+	font-size: 30px;
 }

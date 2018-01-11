@@ -35,7 +35,7 @@ class RealGameClass extends React.Component {
 	}
 }
 
-RealGameClass.PropTypes = {
+RealGameClass.propTypes = {
 	// which conference this game is in (Conference.CONFERENCES... constants)
 	conference: PropTypes.string.isRequired,
 	// which round is the game in

@@ -26,7 +26,7 @@ class HomeClass extends React.Component {
 	}
 }
 
-HomeClass.PropTypes = {
+HomeClass.propTypes = {
 	// see state for the fields in this object
 	home: PropTypes.object.isRequired,
 

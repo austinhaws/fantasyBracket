@@ -1,6 +1,4 @@
 import React from "react";
-import {connect} from "react-redux";
-import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 import Conference from "./Conference";
 import RealGame from "./game/RealGame";
@@ -9,10 +7,9 @@ import DragGame from "./game/DragGame";
 import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
-class BracketClass extends React.Component {
-
+class Bracket extends React.Component {
 	// get game properties object to send to a RealGame or DragGame component
-	getGameProps(bracket, conference, round, gameNumber) {
+	static getGameProps(bracket, conference, round, gameNumber) {
 		return {
 			game: bracket[conference].rounds[round][gameNumber],
 			conference: conference,
@@ -21,15 +18,22 @@ class BracketClass extends React.Component {
 		};
 	}
 
+	getPersonName(personId) {
+		const person = this.props.people.find(p => p.uid === personId);
+		return `${person.firstName} ${person.lastName}`;
+	}
+
 	render() {
-		if (!this.props.tournament || (!this.props.realBracket && !this.props.myPicks)) {
+		// if printing, people are required
+		// tournament is always required
+		// if not editing a real bracket then need the picks to show
+		if ((this.props.printing && !this.props.people) || !this.props.tournament || (!this.props.realBracket && !this.props.myPicks)) {
 			return false;
 		}
-
 		const useBracket = this.props.realBracket ? this.props.tournament.conferences : this.props.myPicks;
-		const finalsGame10 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 0);
-		const finalsGame11 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 1);
-		const finalsGame20 = this.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 2, 0);
+		const finalsGame10 = Bracket.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 0);
+		const finalsGame11 = Bracket.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 1, 1);
+		const finalsGame20 = Bracket.getGameProps(useBracket, Conference.CONFERENCES.FINALS, 2, 0);
 
 		let picksRemainingDiv = false;
 		if (!this.props.realBracket) {
@@ -69,6 +73,7 @@ class BracketClass extends React.Component {
 		return (
 			<div className="bracketTopContainer">
 				{picksRemainingDiv}
+				{!this.props.printing ? false : <div className="playerName" key="playerName">{this.getPersonName(this.props.myPicks.uid)}</div>}
 				<div className="roundTitles" key="titles">
 					{
 						[1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
@@ -88,21 +93,21 @@ class BracketClass extends React.Component {
 				</div>
 				<div className="bracketContainer">
 					<div className="bracketContainerLeft" key="left">
-						<Conference conference={Conference.CONFERENCES.TOP_LEFT} realBracket={this.props.realBracket}/>
-						<Conference conference={Conference.CONFERENCES.BOTTOM_LEFT} realBracket={this.props.realBracket}/>
+						<Conference conference={Conference.CONFERENCES.TOP_LEFT} realBracket={this.props.realBracket} myPicks={this.props.myPicks} tournament={this.props.tournament}/>
+						<Conference conference={Conference.CONFERENCES.BOTTOM_LEFT} realBracket={this.props.realBracket} myPicks={this.props.myPicks} tournament={this.props.tournament}/>
 					</div>
 					<div className="bracketContainerMiddle" key="middle">
 						<div className="conferenceContainer">
 							<div className="roundsContainer">
-								{this.props.realBracket ? <RealGame {...finalsGame10}/> : <DragGame {...finalsGame10}/>}
-								{this.props.realBracket ? <RealGame {...finalsGame20}/> : <DragGame {...finalsGame20}/>}
-								{this.props.realBracket ? <RealGame {...finalsGame11}/> : <DragGame {...finalsGame11}/>}
+								{this.props.realBracket ? <RealGame {...finalsGame10}/> : <DragGame {...finalsGame10} tournament={this.props.tournament}/>}
+								{this.props.realBracket ? <RealGame {...finalsGame20}/> : <DragGame {...finalsGame20} tournament={this.props.tournament}/>}
+								{this.props.realBracket ? <RealGame {...finalsGame11}/> : <DragGame {...finalsGame11} tournament={this.props.tournament}/>}
 							</div>
 						</div>
 					</div>
 					<div className="bracketContainerRight" key="right">
-						<Conference conference={Conference.CONFERENCES.TOP_RIGHT} realBracket={this.props.realBracket}/>
-						<Conference conference={Conference.CONFERENCES.BOTTOM_RIGHT} realBracket={this.props.realBracket}/>
+						<Conference conference={Conference.CONFERENCES.TOP_RIGHT} realBracket={this.props.realBracket} myPicks={this.props.myPicks} tournament={this.props.tournament}/>
+						<Conference conference={Conference.CONFERENCES.BOTTOM_RIGHT} realBracket={this.props.realBracket} myPicks={this.props.myPicks} tournament={this.props.tournament}/>
 					</div>
 				</div>
 			</div>
@@ -110,7 +115,11 @@ class BracketClass extends React.Component {
 	}
 }
 
-BracketClass.PropTypes = {
+Bracket.defaultProps = {
+	printing: false,
+};
+
+Bracket.propTypes = {
 	// == Props == //
 	// true if this the real bracket to edit for played games, false if someone is editing their own bracket
 	realBracket: PropTypes.bool.isRequired,
@@ -118,17 +127,14 @@ BracketClass.PropTypes = {
 	// if doing my bracket then this is their picks, otherwise it's the real bracket
 	myPicks: PropTypes.object,
 
-	// == STORE == //
-	// the logged in user
-	user: PropTypes.object.isRequired,
-};
+	// is this bracket being printed (shows name and a few other changes)
+	printing: PropTypes.bool,
 
-// withRouter required so that routing isn't blocked: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
-const Bracket = withRouter(connect(
-	state => state,
-	dispatch => {
-		return {}
-	},
-)(BracketClass));
+	// the tournament
+	tournament: PropTypes.object,
+
+	// all the known people
+	people: PropTypes.array,
+};
 
 export default DragDropContext(HTML5Backend)(Bracket);

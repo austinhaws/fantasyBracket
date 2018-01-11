@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import reducers from "../../Reducers";
-import {connect} from "react-redux";
 import shared from "../../Shared";
 import DragTeam from "./DragTeam";
 import {DropTarget} from 'react-dnd';
@@ -55,7 +54,7 @@ function collectDrop(connect, monitor) {
 }
 
 // drag and drop game for editing your bracket
-class DragGameClass extends React.Component {
+class DragGame extends React.Component {
 	render() {
 		const realGame = this.props.tournament.conferences[this.props.conference].rounds[this.props.round][this.props.gameNumber];
 
@@ -88,7 +87,7 @@ class DragGameClass extends React.Component {
 	}
 }
 
-DragGameClass.PropTypes = {
+DragGame.propTypes = {
 	// which conference this game is in (Conference.CONFERENCES... constants)
 	conference: PropTypes.string.isRequired,
 	// which round is the game in
@@ -96,22 +95,15 @@ DragGameClass.PropTypes = {
 	// which game number in the group of games is this?
 	gameNumber: PropTypes.number.isRequired,
 
+	// the current tournament information
+	tournament: PropTypes.object.isRequired,
+
 	// information about this game (first round games have different information)
 	game: PropTypes.object.isRequired,
-
-	// -- STORE -- //
-	// the bracket edit object from the store
-	bracket: PropTypes.object.isRequired,
 
 	// -- DRAGGING -- //
 	connectDropTarget: PropTypes.func.isRequired,
 	isOver: PropTypes.bool.isRequired
 };
-
-const DragGame = connect(
-	state => state,
-	dispatch => {return {};},
-)(DragGameClass);
-
 
 export default DropTarget(ItemTypes.TEAM, gameTarget, collectDrop)(DragGame);

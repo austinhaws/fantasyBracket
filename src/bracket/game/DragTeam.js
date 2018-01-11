@@ -47,7 +47,7 @@ class DragTeamClass extends React.Component {
 	}
 }
 
-DragTeamClass.PropTypes = {
+DragTeamClass.propTypes = {
 	team: PropTypes.object.isRequired,
 
 	// which conference this game is in (Conference.CONFERENCES... constants)

@@ -18,7 +18,7 @@ class DateInput extends React.Component {
 	}
 }
 
-DateInput.PropTypes = {
+DateInput.propTypes = {
 	label: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	dateChanged: PropTypes.func.isRequired,
@@ -85,7 +85,7 @@ class TournamentClass extends React.Component {
 	}
 }
 
-TournamentClass.PropTypes = {
+TournamentClass.propTypes = {
 	// see state for the fields in this object
 	home: PropTypes.object.isRequired,
 

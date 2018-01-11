@@ -128,7 +128,11 @@ const shared = {
 					toGame: {conference: toGame.conference, round: toGame.round, gameNumber: toGame.gameNumber},
 				}, callback, true
 			)
-		}
+		},
+
+		getAllBrackets: () => shared.funcs.ajax('GET', 'bracket/all', {}, brackets => store.dispatch({type: reducers.ACTION_TYPES.SET_ALL_BRACKETS, payload: brackets})),
+
+		getPeople: () => shared.funcs.ajax('GET', 'person/all', {}, people => store.dispatch({type: reducers.ACTION_TYPES.SET_PEOPLE, payload: people})),
 	},
 	vars: {
 		// has csrf been fetched?
